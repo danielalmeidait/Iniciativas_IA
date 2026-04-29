@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react(), tailwindcss()],
+    base: '/Iniciativas_IA/',
 
     define: {
       // Expõe a variável de ambiente GEMINI_API_KEY para o bundle do cliente.
