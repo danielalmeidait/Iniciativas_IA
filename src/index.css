@@ -5,6 +5,12 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --color-claro-red: #da291c;
   --color-claro-dark: #a61d15;
+  
+  @keyframes pulse-slow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(0.98); }
+  }
+  --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
 }
 
 @layer base {
