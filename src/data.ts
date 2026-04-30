@@ -58,7 +58,7 @@ export const AI_AGENTS: AIAgent[] = [
         ]
       }
     ],
-    icon: 'FileSearch',
+    icon: 'aria-logo.png',
     inputs: ['Documentos de Requisitos', 'Arquivos CAD', 'PDF técnico', 'Normas regulatórias', 'Escopos de projeto'],
     outputs: ['Análise crítica detalhada (qualidade/clareza/completude)', 'Arquivo corrigido para download', 'Critérios de aceite', 'Pontos de atenção técnicos']
   },
@@ -110,9 +110,370 @@ export const AI_AGENTS: AIAgent[] = [
         ]
       }
     ],
-    icon: 'Code',
+    icon: 'elisa-logo.png',
     inputs: ['Requisitos brutos', 'Regras de Negócio', 'Documentos de negócio', 'Feedbacks de usuários'],
     outputs: ['User Story estruturada', 'Regras de Negócio detalhadas', 'Sugestão Técnica (Código)', 'Critérios de Aceite (Gherkin)']
+  },
+  {
+    id: 'facto-ia',
+    name: 'Facto IA',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Processos & SLA',
+    execution: 'Relatório / Validação Técnica',
+    owner: 'ESO Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Realização automática de FCA (Fato, Causa e Ação) após o FETEC das RECs.',
+    mission: 'Agilizar o fechamento de FECOMs e apoiar a criação de RCAs de qualidade.',
+    longDescription: 'O Facto IA foi criado para automatizar a análise de falhas e a geração de relatórios de RCA. Ele processa informações técnicas para identificar a causa raiz e sugerir ações corretivas de forma padronizada.',
+    features: [
+      {
+        category: 'Análise de Causa',
+        items: [
+          'Geração automática de FCA (Fato, Causa e Ação)',
+          'Apoio técnico para criação de RCA',
+          'Padronização de justificativas técnicas'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Operacional',
+        items: [
+          'Redução drástica no tempo de fechamento de FECOM',
+          'Melhoria na qualidade técnica dos relatórios de causa-ação',
+          'Facilidade na identificação de falhas recorrentes'
+        ]
+      }
+    ],
+    icon: 'factoIA-logo.png',
+    inputs: ['Dados do FETEC', 'Logs de equipamentos', 'Histórico de RECs'],
+    outputs: ['FCA estruturado', 'Sugestão de RCA', 'Parecer de fechamento']
+  },
+  {
+    id: 'iana',
+    name: 'IAnA',
+    department: 'MSO Backbone',
+    domain: 'Rede & Equipamento',
+    execution: 'Diagnóstico de Falha',
+    owner: 'MSO Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Análise inteligente de informes de manutenção programada da rede.',
+    mission: 'Automatizar a tradução de designações técnicas e prever riscos de isolamento.',
+    longDescription: 'A IAnA processa listas de designações recebidas por e-mail, traduzindo códigos técnicos para nomes amigáveis de sites e identificando preventivamente riscos de isolamento de rede.',
+    features: [
+      {
+        category: 'Processamento',
+        items: [
+          'Tradução de designações técnicas para nomes de sites',
+          'Cálculo de risco de isolamento por manutenção',
+          'Geração automática de comunicados para clientes'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Rede',
+        items: [
+          'Maior clareza no impacto de manutenções programadas',
+          'Comunicação proativa e precisa com o cliente final',
+          'Redução de erros de interpretação técnica'
+        ]
+      }
+    ],
+    icon: 'IAna-logo.png',
+    inputs: ['Lista de designações por e-mail', 'Base de dados de topologia'],
+    outputs: ['Relatório de impacto por site', 'Risco de isolamento detalhado', 'Sugestão de e-mail para cliente']
+  },
+  {
+    id: 'siria',
+    name: 'SirIA',
+    department: 'MSO Backbone',
+    domain: 'Rede & Equipamento',
+    execution: 'Relatório / Validação Técnica',
+    owner: 'SIR Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Análise profunda de históricos de observação de RECs do SIR.',
+    mission: 'Transformar logs complexos em visões executivas e linhas do tempo detalhadas.',
+    longDescription: 'A SirIA analisa grandes volumes de texto de históricos de RECs para extrair os eventos principais, criando uma narrativa cronológica dos incidentes e lições aprendidas.',
+    features: [
+      {
+        category: 'Análise de Histórico',
+        items: [
+          'Resumo executivo consolidado dos eventos',
+          'Construção de linha do tempo detalhada',
+          'Identificação de lições aprendidas e ações preventivas',
+          'Geração de FCA para incidentes de rede'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Gestão de Crise',
+        items: [
+          'Entendimento rápido de incidentes complexos',
+          'Facilidade na elaboração de post-mortems',
+          'Base de conhecimento para evitar falhas futuras'
+        ]
+      }
+    ],
+    icon: 'Siria-logo.png',
+    inputs: ['Histórico de observações (Arquivo texto)', 'Logs do SIR'],
+    outputs: ['Resumo Executivo', 'Linha do Tempo', 'Plano de Ações Preventivas', 'FCA Completo']
+  },
+  {
+    id: 'check-ia',
+    name: 'Check IA',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Processos & SLA',
+    execution: 'Relatório / Validação Técnica',
+    owner: 'ESO Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Comparação inteligente de checklists em atividades de cliente.',
+    mission: 'Garantir que as atividades técnicas não gerem alterações indesejadas na rede.',
+    longDescription: 'O Check IA compara tabelas de roteamento e configurações antes e depois de janelas de manutenção, apontando divergências críticas que podem impactar o serviço.',
+    features: [
+      {
+        category: 'Validação',
+        items: [
+          'Comparação de tabelas de roteamento',
+          'Validação de checklists de atividades de DR',
+          'Destaque automático de alterações de configuração'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Qualidade',
+        items: [
+          'Garantia de que a rede voltou ao estado esperado',
+          'Identificação imediata de erros humanos na configuração',
+          'Segurança operacional em janelas críticas'
+        ]
+      }
+    ],
+    icon: 'CheckIA-logo.png',
+    inputs: ['Checklist Pré-atividade', 'Checklist Pós-atividade', 'Tabelas de Roteamento'],
+    outputs: ['Relatório de divergências', 'Status de conformidade', 'Destaques de alteração']
+  },
+  {
+    id: 'confia',
+    name: 'ConfIA',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Rede & Equipamento',
+    execution: 'Relatório / Validação Técnica',
+    owner: 'ESO Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Comparação de arquivos de configuração de roteadores Cisco.',
+    mission: 'Identificar alterações de configuração com precisão e rapidez.',
+    longDescription: 'Focado em equipamentos Cisco, o ConfIA analisa os arquivos de configuração para detectar mudanças, garantindo que as intervenções técnicas seguiram o planejado.',
+    features: [
+      {
+        category: 'Configuração',
+        items: [
+          'Comparação de arquivos running-config',
+          'Identificação de comandos adicionados ou removidos',
+          'Análise de conformidade com o template padrão'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Técnico',
+        items: [
+          'Redução no tempo de auditoria de configurações',
+          'Precisão absoluta na detecção de mudanças',
+          'Facilidade no rollback se necessário'
+        ]
+      }
+    ],
+    icon: 'confIA-logo.png',
+    inputs: ['Configuração Antes', 'Configuração Depois'],
+    outputs: ['Relatório de diferenças (Diff)', 'Análise de impacto da mudança']
+  },
+  {
+    id: 'deserth',
+    name: 'DESERTH',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Processos & SLA',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'ESO Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Análise especializada de projetos e performance de atendimento.',
+    mission: 'Otimizar o tempo de serviço e garantir o cumprimento de SLAs.',
+    longDescription: 'O DESERTH analisa os dados de atendimento das equipes para identificar gargalos, causas de demora e pontos de falha no centro funcional.',
+    features: [
+      {
+        category: 'Performance',
+        items: [
+          'Análise de tempo de serviço dos atendimentos',
+          'Identificação de causas de demora e perda de SLA',
+          'Mapeamento de falhas por equipe ou centro funcional'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Gestão',
+        items: [
+          'Visão clara dos gargalos operacionais',
+          'Subsídios para melhoria de processos de atendimento',
+          'Aumento da eficiência das equipes de recuperação'
+        ]
+      }
+    ],
+    icon: 'Deserth-logo.png',
+    inputs: ['Dados de atendimentos', 'Métricas de SLA', 'Logs de produtividade'],
+    outputs: ['Relatório de gargalos', 'Indicativos de falha', 'Pontos de melhoria operacional']
+  },
+  {
+    id: 'aqs',
+    name: 'AQS',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Processos & SLA',
+    execution: 'Auditoria Preventiva',
+    owner: 'ESO Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Analista de Qualidade de Serviço e conformidade de escalonamentos.',
+    mission: 'Garantir que os contatos e escalonamentos sigam o padrão de qualidade exigido.',
+    longDescription: 'A AQS audita os contatos realizados pelos colaboradores, verificando se os protocolos de escalonamento foram seguidos e se houve efetividade na comunicação.',
+    features: [
+      {
+        category: 'Qualidade',
+        items: [
+          'Auditoria de escalonamentos item a item',
+          'Avaliação de dificuldade em contatos telefônicos',
+          'Checagem do nível de escalonamento atingido'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Qualidade',
+        items: [
+          'Padronização no atendimento e escalonamento',
+          'Identificação de falhas no processo de comunicação',
+          'Melhoria na percepção de qualidade do cliente'
+        ]
+      }
+    ],
+    icon: 'Sentinela-logo.png',
+    inputs: ['Gravações/Logs de chamadas', 'Tickets de escalonamento'],
+    outputs: ['Nota de qualidade por atendimento', 'Relatório de inconsistências', 'Feedback para treinamento']
+  },
+  {
+    id: 'bancodoc',
+    name: 'BancoDoc',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Documentos & Backlog',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'ESO Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Gestão inteligente de pendências documentais e base de dados.',
+    mission: 'Manter as informações documentais sempre atualizadas e em conformidade.',
+    longDescription: 'Especialista em análise de documentos, o BancoDoc propõe correções em planilhas e identifica proativamente pendências de colaboradores.',
+    features: [
+      {
+        category: 'Documental',
+        items: [
+          'Análise proativa de pendências documentais',
+          'Proposta de atualizações para planilhas de dados',
+          'Relatórios consolidados por colaborador'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Conformidade',
+        items: [
+          'Redução de erros em cadastros documentais',
+          'Facilidade na regularização de colaboradores',
+          'Base de dados sempre íntegra e confiável'
+        ]
+      }
+    ],
+    icon: 'BancoDoc-logo.png',
+    inputs: ['Planilhas de cadastro', 'Repositórios de documentos'],
+    outputs: ['Relatório de pendências', 'Sugestão de correção de dados', 'Status de conformidade']
+  },
+  {
+    id: 'automaton',
+    name: 'Autômaton',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Processos & SLA',
+    execution: 'Relatório / Validação Técnica',
+    owner: 'PCP Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'Automação',
+    description: 'Planejamento e Controle de Produção automatizado.',
+    mission: 'Otimizar o fluxo de produção e evitar o vencimento de circuitos técnicos.',
+    longDescription: 'Baseado na extração de dados do SGP, o Autômaton filtra e organiza as demandas para garantir que as rotinas diárias e vencimentos sejam respeitados.',
+    features: [
+      {
+        category: 'Produção',
+        items: [
+          'Filtragem automática de base SGP',
+          'Controle de circuitos próximos ao vencimento',
+          'Automação de rotinas diárias de produção'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'PCP',
+        items: [
+          'Visão clara do que é prioritário no dia',
+          'Redução de perda de prazos de tecnologia',
+          'Geração de base filtrada pronta para ação'
+        ]
+      }
+    ],
+    icon: 'Autômaton-logo.png',
+    inputs: ['Base extraída do SGP', 'Calendário de produção'],
+    outputs: ['Base filtrada por valores específicos', 'Alertas de vencimento', 'Plano de produção diário']
+  },
+  {
+    id: 'bia',
+    name: 'bIA',
+    department: 'ESO (Eficiência e Suporte Operacional)',
+    domain: 'Documentos & Backlog',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Backlog Team',
+    ownerEmail: 'agentes.ia@claro.com.br',
+    type: 'GenAI',
+    description: 'Backlog Assistence: assistente de gestão de links e prazos.',
+    mission: 'Garantir a entrega de links dentro do prazo e organizar o backlog.',
+    longDescription: 'A bIA analisa planilhas de backlog de links, gerando relatórios de status e sinalizando riscos de atraso de forma preditiva.',
+    features: [
+      {
+        category: 'Backlog',
+        items: [
+          'Análise de backlog de links pendentes',
+          'Sinalização de prazos vencidos ou a vencer',
+          'Geração de relatórios diários, gráficos e tabelas'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Operacional',
+        items: [
+          'Foco nos links com maior risco de atraso',
+          'Visibilidade total da receita envolvida nos links',
+          'Redução do tempo de gestão manual do backlog'
+        ]
+      }
+    ],
+    icon: 'bIA-logo.png',
+    inputs: ['Planilha de backlog Excel', 'Dados de previsão de entrega'],
+    outputs: ['Relatórios de status diário', 'Gráficos de evolução', 'Alertas de ativação crítica']
   },
   {
     id: 'guara',
@@ -236,7 +597,7 @@ export const AI_AGENTS: AIAgent[] = [
         category: 'Interpretação & Visão',
         items: [
           'Interpretação automática de LEDs e Etiquetas via smartphone',
-          'Identificação imediata de estados: normal, falha ou degradação',
+          'Identificação imediata de estados: normal, falha ou degranadação',
           'Captura e transcrição de Serial Number e MAC para o MODOS'
         ]
       },

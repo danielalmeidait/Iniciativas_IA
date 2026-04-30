@@ -36,6 +36,14 @@ const icons: Record<string, React.ElementType> = {
   FileText
 };
 
+const RenderIcon = ({ icon, className }: { icon: string; className: string }) => {
+  if (icon.includes('.')) {
+    return <img src={`./${icon}`} alt="Logo" className={`${className} object-contain`} />;
+  }
+  const Icon = icons[icon] || BrainCircuit;
+  return <Icon className={className} />;
+};
+
 interface CatalogProps {
   onSelect: (agent: AIAgent) => void;
   search: string;
@@ -100,7 +108,6 @@ export default function Catalog({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <AnimatePresence mode="popLayout">
           {filteredAgents.map((agent) => {
-            const Icon = icons[agent.icon] || BrainCircuit;
             const isHighlighted = agent.id === lastSelectedId;
             return (
               <motion.div
@@ -125,8 +132,8 @@ export default function Catalog({
                 )}
                 {/* Header Section */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 group-hover:bg-claro-red group-hover:border-claro-red group-hover:scale-105 transition-all duration-300">
-                    <Icon className="w-8 h-8 text-claro-red group-hover:text-white transition-colors" />
+                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 group-hover:bg-claro-red group-hover:border-claro-red group-hover:scale-105 transition-all duration-300 p-2">
+                    <RenderIcon icon={agent.icon} className="w-full h-full text-claro-red group-hover:text-white transition-colors" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 tracking-tight group-hover:text-claro-red transition-colors">{agent.name}</h3>

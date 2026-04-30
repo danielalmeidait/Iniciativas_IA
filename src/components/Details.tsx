@@ -28,13 +28,20 @@ const icons: Record<string, React.ElementType> = {
   FileText,
 };
 
+const RenderIcon = ({ icon, className }: { icon: string; className: string }) => {
+  if (icon.includes('.')) {
+    return <img src={`./${icon}`} alt="Logo" className={`${className} object-contain`} />;
+  }
+  const Icon = icons[icon] || Zap;
+  return <Icon className={className} />;
+};
+
 interface DetailsProps {
   agent: AIAgent;
   onBack: () => void;
 }
 
 export default function Details({ agent, onBack }: DetailsProps) {
-  const Icon = icons[agent.icon] || Zap;
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12">
@@ -66,8 +73,8 @@ export default function Details({ agent, onBack }: DetailsProps) {
         {/* Header Section */}
         <div className="bg-gradient-to-br from-claro-red to-claro-dark p-6 md:p-8 text-white">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center shrink-0">
-              <Icon className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center shrink-0 p-2">
+              <RenderIcon icon={agent.icon} className="w-full h-full text-white" />
             </div>
             <div className="text-center md:text-left">
               <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-2">
