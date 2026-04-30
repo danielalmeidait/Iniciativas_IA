@@ -1,18 +1,35 @@
 import { AIAgent } from './types';
 
+export const DOMAINS = [
+  'Análise e Gestão',
+  'Controle e Monitoramento',
+  'Diagnóstico e Investigação',
+  'Relatórios e Validação',
+  'Automação Processual',
+  'Suporte Operacional',
+  'Conhecimento e Documentação',
+  'Planejamento e Controle',
+  'Gestão de Incidentes e Problemas',
+  'Auditoria e Compliance'
+] as const;
+
+// ─── Lista de Iniciativas de IA ──────────────────────────────────────────
+
 export const AI_AGENTS: AIAgent[] = [
+  // ── Eficiência e Suporte Operacional ──
   {
     id: 'aria',
     name: 'ARIA',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Documentos & Backlog',
+    department: 'Eficiência e Suporte Operacional',
+    domain: 'Relatórios e Validação',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Leandro Rosseto',
     ownerEmail: 'leandro.rosseto@claro.com.br',
-    type: 'GenAI',
-    description: 'Analista virtual de requisitos via Microsoft Copilot que eleva a qualidade das demandas desde a origem.',
+    type: 'Microsoft - Copilot',
+    tagline: 'Analista de Requisitos Inteligência Artificial',
+    description: 'Analista virtual de requisitos que eleva a qualidade das demandas desde a origem.',
     mission: 'Reduzir retrabalho, acelerar entendimento e padronizar requisitos.',
-    longDescription: 'ARIA é um agente de Inteligência Artificial especializado em requisitos. Atua como analista virtual, apoiando times desde a concepção até o detalhamento final. Seu objetivo é elevar a qualidade dos requisitos e reduzir retrabalho e tempo de entrega, apoiando a tomada de decisão desde a origem das demandas.',
+    longDescription: 'ARIA é uma agente de Inteligência Artificial especializada em requisitos. Ela atua como uma analista virtual, apoiando os times desde a concepção até o detalhamento final. Seu objetivo é elevar a qualidade dos requisitos e reduzir retrabalho e tempo de entrega, apoiando a tomada de decisão desde a origem das demandas.',
     features: [
       {
         category: 'Funcionalidades',
@@ -60,20 +77,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'aria-logo.png',
     inputs: ['Documentos de Requisitos', 'Arquivos CAD', 'PDF técnico', 'Normas regulatórias', 'Escopos de projeto'],
-    outputs: ['Análise crítica detalhada (qualidade/clareza/completude)', 'Arquivo corrigido para download', 'Critérios de aceite', 'Pontos de atenção técnicos']
+    outputs: ['Análise crítica detalhada (qualidade/clarza/completude)', 'Arquivo corrigido para download', 'Critérios de aceite', 'Pontos de atenção técnicos'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_70b25520-6647-aeb0-a360-aedb534e2b5e&source=embedded-builder'
   },
   {
     id: 'elisa',
     name: 'ELISA',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Documentos & Backlog',
-    execution: 'Relatório / Validação Técnica',
+    department: 'Eficiência e Suporte Operacional',
+    domain: 'Relatórios e Validação',
+    execution: 'Gestão & Qualidade Operacional',
     owner: 'William Teodoro de Moraes',
     ownerEmail: 'william.moraes.terceiros@claro.com.br',
-    type: 'GenAI',
-    description: 'Apoio via Microsoft Copilot para transformar requisitos em PBIs estruturados, acelerando entregas.',
+    type: 'Microsoft - Copilot',
+    tagline: 'Estrutura, Linguagem e Integração para Soluções Ágeis',
+    description: 'Transformação de requisitos em PBIs estruturados para acelerar entregas.',
     mission: 'Aumentar a produtividade dos times de desenvolvimento.',
-    longDescription: 'ELISA (Estrutura, Linguagem e Integração para Soluções Ágeis) apóia Product Owners (POs) com escritas de histórias de usuário (PBIs) completas, claras e padronizadas. Seu objetivo é transformar requisitos e regras de negócio em textos bem estruturados.',
+    longDescription: 'ELISA (Estrutura, Linguagem e Integração para Soluções Ágeis) é uma agente de IA criada para apóiar o(s) Product Owners (POs) com escritas de histórias de usuário (PBIs) completas, claras e padronizadas. Seu objetivo é transformar requisitos e regras de negócio em textos bem estruturados.',
     features: [
       {
         category: 'Capacidades',
@@ -112,20 +131,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'elisa-logo.png',
     inputs: ['Requisitos brutos', 'Regras de Negócio', 'Documentos de negócio', 'Feedbacks de usuários'],
-    outputs: ['User Story estruturada', 'Regras de Negócio detalhadas', 'Sugestão Técnica (Código)', 'Critérios de Aceite (Gherkin)']
+    outputs: ['User Story estruturada', 'Regras de Negócio detalhadas', 'Sugestão Técnica (Código)', 'Critérios de Aceite (Gherkin)'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_abb80b91-c6f5-e7b3-6d69-b9a1bc35d311&source=embedded-builder'
   },
   {
     id: 'facto-ia',
-    name: 'Facto IA',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Processos & SLA',
-    execution: 'Relatório / Validação Técnica',
-    owner: 'ESO Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
-    description: 'Realização automática de FCA (Fato, Causa e Ação) após o FETEC das RECs.',
+    name: 'FACTOIA',
+    department: 'LeSulConNe',
+    domain: 'Diagnóstico e Investigação',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Ronaldo Evaristo Das Merces',
+    ownerEmail: 'ronaldo.merces@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Fato, Causa e Ação - FCA',
+    description: 'Realização automática de FCA após o FETEC das RECs.',
     mission: 'Agilizar o fechamento de FECOMs e apoiar a criação de RCAs de qualidade.',
-    longDescription: 'O Facto IA foi criado para automatizar a análise de falhas e a geração de relatórios de RCA. Ele processa informações técnicas para identificar a causa raiz e sugerir ações corretivas de forma padronizada.',
+    longDescription: 'Agente criado para para automatizar a análise de falhas e a generation de relatórios de RCA. Ele processa informações técnicas para identificar a causa raiz e sugerir ações corretivas de forma padronizada.',
     features: [
       {
         category: 'Análise de Causa',
@@ -148,20 +169,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'factoIA-logo.png',
     inputs: ['Dados do FETEC', 'Logs de equipamentos', 'Histórico de RECs'],
-    outputs: ['FCA estruturado', 'Sugestão de RCA', 'Parecer de fechamento']
+    outputs: ['FCA estruturado', 'Sugestão de RCA', 'Parecer de fechamento'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_36512c08-a28f-34be-f604-087a975b842f&source=embedded-builder'
   },
   {
     id: 'iana',
     name: 'IAnA',
-    department: 'MSO Backbone',
-    domain: 'Rede & Equipamento',
-    execution: 'Diagnóstico de Falha',
-    owner: 'MSO Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
+    department: 'LeSulConNe',
+    domain: 'Análise e Gestão',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Luis Fernando Marks',
+    ownerEmail: 'luis.marks@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Análise de Informes - SGIR',
     description: 'Análise inteligente de informes de manutenção programada da rede.',
     mission: 'Automatizar a tradução de designações técnicas e prever riscos de isolamento.',
-    longDescription: 'A IAnA processa listas de designações recebidas por e-mail, traduzindo códigos técnicos para nomes amigáveis de sites e identificando preventivamente riscos de isolamento de rede.',
+    longDescription: 'A IAnA é uma agente de IA que processa listas de designações recebidas por e-mail, traduzindo códigos técnicos para nomes amigáveis de sites e identificando preventivamente riscos de isolamento de rede.',
     features: [
       {
         category: 'Processamento',
@@ -184,20 +207,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'IAna-logo.png',
     inputs: ['Lista de designações por e-mail', 'Base de dados de topologia'],
-    outputs: ['Relatório de impacto por site', 'Risco de isolamento detalhado', 'Sugestão de e-mail para cliente']
+    outputs: ['Relatório de impacto por site', 'Risco de isolamento detalhado', 'Sugestão de e-mail para cliente'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a04ded4b-18a3-ea81-d98d-7d649ad0326c&source=embedded-builder'
   },
   {
     id: 'siria',
     name: 'SirIA',
-    department: 'MSO Backbone',
-    domain: 'Rede & Equipamento',
-    execution: 'Relatório / Validação Técnica',
-    owner: 'SIR Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
+    department: 'LeSulConNe',
+    domain: 'Análise e Gestão',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Luis Fernando Marks',
+    ownerEmail: 'luis.marks@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Análise de RECs - SIR',
     description: 'Análise profunda de históricos de observação de RECs do SIR.',
     mission: 'Transformar logs complexos em visões executivas e linhas do tempo detalhadas.',
-    longDescription: 'A SirIA analisa grandes volumes de texto de históricos de RECs para extrair os eventos principais, criando uma narrativa cronológica dos incidentes e lições aprendidas.',
+    longDescription: 'Uma agente de IA que analisa grandes volumes de texto e históricos de RECs para extrair os eventos principais, criando uma narrativa cronológica dos incidentes e lições aprendidas.',
     features: [
       {
         category: 'Análise de Histórico',
@@ -221,20 +246,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'Siria-logo.png',
     inputs: ['Histórico de observações (Arquivo texto)', 'Logs do SIR'],
-    outputs: ['Resumo Executivo', 'Linha do Tempo', 'Plano de Ações Preventivas', 'FCA Completo']
+    outputs: ['Resumo Executivo', 'Linha do Tempo', 'Plano de Ações Preventivas', 'FCA Completo'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_22360653-26c8-57e4-88fd-e63e00f17f84&source=embedded-builder'
   },
   {
     id: 'check-ia',
-    name: 'Check IA',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Processos & SLA',
-    execution: 'Relatório / Validação Técnica',
-    owner: 'ESO Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
+    name: 'CHECKIA',
+    department: 'LeSulConNe',
+    domain: 'Relatórios e Validação',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Luis Fernando Marks',
+    ownerEmail: 'luis.marks@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Análise de checklist de atividades',
     description: 'Comparação inteligente de checklists em atividades de cliente.',
     mission: 'Garantir que as atividades técnicas não gerem alterações indesejadas na rede.',
-    longDescription: 'O Check IA compara tabelas de roteamento e configurações antes e depois de janelas de manutenção, apontando divergências críticas que podem impactar o serviço.',
+    longDescription: 'O Check IA é um agente de IA que compara tabelas de roteamento e configurações antes e depois de janelas de manutenção, apontando divergências críticas que podem impactar o serviço.',
     features: [
       {
         category: 'Validação',
@@ -257,20 +284,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'CheckIA-logo.png',
     inputs: ['Checklist Pré-atividade', 'Checklist Pós-atividade', 'Tabelas de Roteamento'],
-    outputs: ['Relatório de divergências', 'Status de conformidade', 'Destaques de alteração']
+    outputs: ['Relatório de divergências', 'Status de conformidade', 'Destaques de alteração'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_ee211807-6c56-7c15-c4eO-f37443fbdd34&source=embedded-builder'
   },
   {
     id: 'confia',
-    name: 'ConfIA',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Rede & Equipamento',
-    execution: 'Relatório / Validação Técnica',
-    owner: 'ESO Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
-    description: 'Comparação de arquivos de configuração de roteadores Cisco.',
+    name: 'CONFIA',
+    department: 'LeSulConNe',
+    domain: 'Diagnóstico e Investigação',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Luis Fernando Marks',
+    ownerEmail: 'luis.marks@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Análise de configurações de roteador',
+    description: 'Análise de configurações de roteador para detectar mudanças.',
     mission: 'Identificar alterações de configuração com precisão e rapidez.',
-    longDescription: 'Focado em equipamentos Cisco, o ConfIA analisa os arquivos de configuração para detectar mudanças, garantindo que as intervenções técnicas seguiram o planejado.',
+    longDescription: 'O CONFIA é um agente de IA que analisa os arquivos de configuração de roteador para detectar mudanças, garantindo que as intervenções técnicas seguiram o planejado e reduzindo o tempo de auditoria.',
     features: [
       {
         category: 'Configuração',
@@ -293,20 +322,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'confIA-logo.png',
     inputs: ['Configuração Antes', 'Configuração Depois'],
-    outputs: ['Relatório de diferenças (Diff)', 'Análise de impacto da mudança']
+    outputs: ['Relatório de diferenças (Diff)', 'Análise de impacto da mudança'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a95041b3-4087-5b58-4d3c-9504c8547f45&source=embedded-builder'
   },
   {
     id: 'deserth',
     name: 'DESERTH',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Processos & SLA',
+    department: 'LeSulConNe',
+    domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
-    owner: 'ESO Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
+    owner: 'Marcia Cristina Souza',
+    ownerEmail: 'marcia.souza.terceiros@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Analista de Serviço',
     description: 'Análise especializada de projetos e performance de atendimento.',
     mission: 'Otimizar o tempo de serviço e garantir o cumprimento de SLAs.',
-    longDescription: 'O DESERTH analisa os dados de atendimento das equipes para identificar gargalos, causas de demora e pontos de falha no centro funcional.',
+    longDescription: 'O DESERTH, um agente de IA, analisa os dados de atendimento das equipes para identificar gargalos, causas de demora e pontos de falha no centro funcional.',
     features: [
       {
         category: 'Performance',
@@ -329,20 +360,22 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'Deserth-logo.png',
     inputs: ['Dados de atendimentos', 'Métricas de SLA', 'Logs de produtividade'],
-    outputs: ['Relatório de gargalos', 'Indicativos de falha', 'Pontos de melhoria operacional']
+    outputs: ['Relatório de gargalos', 'Indicativos de falha', 'Pontos de melhoria operacional'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_f31ad6bd-b88a-875a-f928-153a54f75a4f&source=embedded-builder'
   },
   {
-    id: 'aqs',
-    name: 'AQS',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Processos & SLA',
-    execution: 'Auditoria Preventiva',
-    owner: 'ESO Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
-    description: 'Analista de Qualidade de Serviço e conformidade de escalonamentos.',
+    id: 'sentinela',
+    name: 'SENTINELA',
+    department: 'LeSulConNe',
+    domain: 'Auditoria e Compliance',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Marcia Cristina Souza',
+    ownerEmail: 'marcia.souza.terceiros@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Analista Qualidade de Serviço',
+    description: 'Auditoria de qualidade de serviço e conformidade de escalonamentos.',
     mission: 'Garantir que os contatos e escalonamentos sigam o padrão de qualidade exigido.',
-    longDescription: 'A AQS audita os contatos realizados pelos colaboradores, verificando se os protocolos de escalonamento foram seguidos e se houve efetividade na comunicação.',
+    longDescription: 'O SENTINELA é um agente de IA que audita os contatos realizados pelos colaboradores, verificando se os protocolos de escalonamento foram seguidos e se houve efetividade na comunicação.',
     features: [
       {
         category: 'Qualidade',
@@ -359,26 +392,28 @@ export const AI_AGENTS: AIAgent[] = [
         items: [
           'Padronização no atendimento e escalonamento',
           'Identificação de falhas no processo de comunicação',
-          'Melhoria na percepção de qualidade do cliente'
+          'Melhoria na qualidade do serviço'
         ]
       }
     ],
     icon: 'Sentinela-logo.png',
     inputs: ['Gravações/Logs de chamadas', 'Tickets de escalonamento'],
-    outputs: ['Nota de qualidade por atendimento', 'Relatório de inconsistências', 'Feedback para treinamento']
+    outputs: ['Nota de qualidade por atendimento', 'Relatório de inconsistências', 'Feedback para treinamento'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_415b082b-466e-f804-b4d6-914444195cf8&source=embedded-builder'
   },
   {
     id: 'bancodoc',
-    name: 'BancoDoc',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Documentos & Backlog',
+    name: 'BANCODOC',
+    department: 'LeSulConNe',
+    domain: 'Relatórios e Validação',
     execution: 'Gestão & Qualidade Operacional',
-    owner: 'ESO Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
+    owner: 'Marcia Cristina Souza',
+    ownerEmail: 'marcia.souza.terceiros@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Gestão inteligente de pendências documentais',
     description: 'Gestão inteligente de pendências documentais e base de dados.',
     mission: 'Manter as informações documentais sempre atualizadas e em conformidade.',
-    longDescription: 'Especialista em análise de documentos, o BancoDoc propõe correções em planilhas e identifica proativamente pendências de colaboradores.',
+    longDescription: 'É um agente de IA Especialista em análise de documentos, que propõe correções em planilhas e identifica proativamente pendências de colaboradores.',
     features: [
       {
         category: 'Documental',
@@ -401,25 +436,27 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'BancoDoc-logo.png',
     inputs: ['Planilhas de cadastro', 'Repositórios de documentos'],
-    outputs: ['Relatório de pendências', 'Sugestão de correção de dados', 'Status de conformidade']
+    outputs: ['Relatório de pendências', 'Sugestão de correção de dados', 'Status de conformidade'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_553ea9cb-5d48-b169-3b82-ab4a655e4c59&source=embedded-builder'
   },
   {
     id: 'automaton',
-    name: 'Autômaton',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Processos & SLA',
-    execution: 'Relatório / Validação Técnica',
-    owner: 'PCP Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'Automação',
-    description: 'Planejamento e Controle de Produção automatizado.',
+    name: 'AUTOMATON',
+    department: 'LeSulConNe',
+    domain: 'Planejamento e Controle',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Zalboeno Lins Ferreira',
+    ownerEmail: 'zalboeno.ferreira@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Planejamento e Controle de Produção',
+    description: 'Planejamento e Controle de Produção automatizado via Microsoft Copilot.',
     mission: 'Otimizar o fluxo de produção e evitar o vencimento de circuitos técnicos.',
-    longDescription: 'Baseado na extração de dados do SGP, o Autômaton filtra e organiza as demandas para garantir que as rotinas diárias e vencimentos sejam respeitados.',
+    longDescription: 'É um agente de IA que utiliza dados de produção e calendários operacionais para filtrar, priorizar e organizar demandas de forma inteligente, garantindo o cumprimento das rotinas diárias e o respeito aos prazos estabelecidos.',
     features: [
       {
         category: 'Produção',
         items: [
-          'Filtragem automática de base SGP',
+          'Filtragem automática de base de produção',
           'Controle de circuitos próximos ao vencimento',
           'Automação de rotinas diárias de produção'
         ]
@@ -436,21 +473,23 @@ export const AI_AGENTS: AIAgent[] = [
       }
     ],
     icon: 'Autômaton-logo.png',
-    inputs: ['Base extraída do SGP', 'Calendário de produção'],
-    outputs: ['Base filtrada por valores específicos', 'Alertas de vencimento', 'Plano de produção diário']
+    inputs: ['Base de dados de produção', 'Calendário de produção'],
+    outputs: ['Base filtrada por valores específicos', 'Alertas de vencimento', 'Plano de produção diário'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/entity1-d870f6cd-4aa5-4d42-9626-b690c041429/eyJpZCI6ImNiOTA3ZjU2LWYzMmEtNGU5YS04OTkzLWVjMWJjNGJhNTI1NiIsInNjZW5hcmlvIjoibGF1bmNoY29waWxvdGV4dGVuc2lvbiIsInByb3BlcnRpZXMiOnsiY2xpY2tUaW1lc3RhbXAiOiJXZWQgSmFuIDI4IDIwMjYifSwidmVyc2lvbiI6MSwic291cmNlIjoib25BcHBJbnN0YWxsYXRpb24iLCJjb3JyZWxhdGlvbklkIjoiZmRjMjg3Y2UtMmJhNC00MDk0LTk4NjktODRkZThhMGRmZDNmIiwiaXNVcGdyYWRlIjpmYWxzZX0='
   },
   {
     id: 'bia',
-    name: 'bIA',
-    department: 'ESO (Eficiência e Suporte Operacional)',
-    domain: 'Documentos & Backlog',
+    name: 'BIA',
+    department: 'LeSulConNe',
+    domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
-    owner: 'Backlog Team',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
-    description: 'Backlog Assistence: assistente de gestão de links e prazos.',
+    owner: 'Tiago Elias Bueno',
+    ownerEmail: 'tiago.eliasbueno@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Backlog Assistence',
+    description: 'Assistente de gestão de links e prazos do backlog.',
     mission: 'Garantir a entrega de links dentro do prazo e organizar o backlog.',
-    longDescription: 'A bIA analisa planilhas de backlog de links, gerando relatórios de status e sinalizando riscos de atraso de forma preditiva.',
+    longDescription: 'A BIA é uma agente de IA que analisa planilhas de backlog de links, gerando relatórios de status e sinalizando riscos de atraso de forma preditiva.',
     features: [
       {
         category: 'Backlog',
@@ -478,15 +517,16 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'guara',
     name: 'GUARÁ',
-    department: 'MSO Backbone',
-    domain: 'Processos & SLA',
+    department: 'Backbone',
+    domain: 'Relatórios e Validação',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Paulo Avila Rizo',
     ownerEmail: 'paulo.rizo@claro.com.br',
-    type: 'GenAI',
-    description: 'Triagem inteligente via Microsoft Copilot e qualificação de projetos de melhoria da Rede Fixa.',
+    type: 'Microsoft - Copilot',
+    tagline: 'Gestor Unificado de Análise de Riscos e Aprovações',
+    description: 'Triagem inteligente e qualificação de projetos de melhoria da Rede Fixa.',
     mission: 'Padronizar o racional de análise de riscos e acelerar a aprovação de projetos.',
-    longDescription: 'Ampliar a atuação do Agente GUARÁ no apoio às Operações Regionais, tornando o processo de pré-validação dos projetos mais padronizado, ágil e eficiente antes da submissão ao SUMMeR. Além de antecipar riscos e pendências, a proposta busca reduzir retrabalho, aumentar a qualidade das entregas e melhorar o fluxo entre Regionais e áreas centrais. Em uma etapa futura, a iniciativa prevê a implementação de automações em atividades operacionais, como captura de solicitações, acesso a documentos, envio para análise pelo agente e geração de relatórios, sempre com validação humana, garantindo escala com governança e maior eficiência operacional.',
+    longDescription: 'É um agente de IA com ampla atuação no apoio às Operações Regionais, tornando o processo de pré-validação dos projetos mais padronizado, ágil e eficiente antes da submissão ao SUMMeR.',
     features: [
       {
         category: 'Triagem e Qualificação',
@@ -495,127 +535,42 @@ export const AI_AGENTS: AIAgent[] = [
           'Checagem automática de evidências e anexos',
           'Identificação de lacunas e pendências'
         ]
-      },
-      {
-        category: 'Risco e Aprovação',
-        items: [
-          'Cálculo de probabilidade e Matriz de Riscos',
-          'Revisão de proposta técnica e CAPEX',
-          'Parecer padronizado: Aprovar, Revisar ou Devolver'
-        ]
       }
     ],
     benefits: [
       {
         role: 'Eficiência Operacional',
         items: [
-          'Redução de tempo por ID: de 1-4h para 10-20 min',
-          'Liberação de 108h/ano por colaborador para valor estratégico',
-          'Padronização entre Regionais, MSO e Engenharia'
-        ]
-      },
-      {
-        role: 'Governança',
-        items: [
-          'Redução de erros humanos e subjetividade',
-          'Rastreabilidade total das decisões e evidências',
-          'Previsibilidade e consistência na tomada de decisão'
+          'Redução de tempo por análise de projeto',
+          'Padronização entre Regionais e áreas centrais',
+          'Melhoria no fluxo de aprovação'
         ]
       }
     ],
     icon: 'ShieldCheck',
-    inputs: ['PPT de Proposta (SUMMeR)', 'Evidências (E-mails/Logs/Prints)', 'Histórico de 12 meses', 'Matriz de Riscos'],
-    outputs: ['Relatório Final Padronizado', 'Nota Final de Referência', 'Parecer Técnico/Executivo', 'JSON para integrações futuras']
-  },
-  {
-    id: 'isa',
-    name: 'ISA',
-    department: 'ESO - B2B',
-    domain: 'Rede & Equipamento',
-    execution: 'Diagnóstico de Falha',
-    owner: 'Alexandre Alcantara',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
-    description: 'Inteligência para Soluções de Anomalias de Rede voltada para o mercado B2B.',
-    mission: 'Zerar o tempo de diagnóstico e automatizar a recuperação de falhas críticas.',
-    longDescription: 'A ISA automatiza a esteira de recuperação de falhas no ambiente Siebel. Ela realiza monitoramento proativo, diagnóstico correlacional e acionamento de parceiros ou técnicos de campo sem intervenção humana.',
-    features: [
-      {
-        category: 'Monitoramento & Diagnóstico',
-        items: [
-          'Monitoramento de queda e performance em tempo real',
-          'Avaliação automática de alarmes e correlação de falhas',
-          'Análise de probabilidade e predição de incidentes'
-        ]
-      },
-      {
-        category: 'Ação & Resolução',
-        items: [
-          'Abertura e fechamento de tickets ITSM (Siebel/SIR)',
-          'Acionamento automático de parceiros e técnicos',
-          'Interação direta com o cliente via canais digitais'
-        ]
-      }
-    ],
-    benefits: [
-      {
-        role: 'Eficiência de Rede',
-        items: [
-          'Redução do tempo médio da esteira de 65min para até 1min',
-          'Ganhos operacionais superiores a 2MM em CAPEX/OPEX',
-          'Melhoria drástica no diagnóstico de falhas complexas'
-        ]
-      },
-      {
-        role: 'Cliente',
-        items: [
-          'Agilidade extrema na recuperação de serviços B2B',
-          'Feedback constante e transparente sobre o status da falha',
-          'Aumento da confiabilidade da rede backbone'
-        ]
-      }
-    ],
-    icon: 'Activity',
-    inputs: ['Alarmes de Rede', 'Orquestradores (Meraki/VeloCloud)', 'Tickets Siebel', 'APIs de Provedores'],
-    outputs: ['Diagnóstico de Causa Raiz', 'Acionamento de Campo', 'Ticket Recuperado', 'Relatório de Estabilidade'],
-    isHighPotential: true
+    inputs: ['Propostas de Projeto', 'Evidências Técnicas', 'Matriz de Riscos'],
+    outputs: ['Relatório Final Padronizado', 'Parecer Técnico/Executivo']
   },
   {
     id: 'cpe-auto',
     name: 'CPE Auto-Config',
-    department: 'ESO - Campo',
-    domain: 'Rede & Equipamento',
-    execution: 'Relatório / Validação Técnica',
-    owner: 'André Luis Mariano',
-    ownerEmail: 'Andre.mariano@claro.com.br',
-    type: 'Visão Computacional',
-    description: 'Suporte inteligente via OpenAI - ChatGPT para técnicos de campo na ativação e configuração de CPEs.',
+    department: 'Viabilidade e Serviços Centralizados',
+    domain: 'Automação Processual',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Andre Luis Mariano',
+    ownerEmail: 'andre.mariano@claro.com.br',
+    type: 'OpenAI - ChatGPT',
+    tagline: 'Automação Config CPE, Suporte N1 e Validação Ativação',
+    description: 'Suporte inteligente para técnicos de campo na ativação de CPEs.',
     mission: 'Acelerar entregas e zerar erros de configuração na ativação física B2B.',
-    longDescription: 'O CPE Auto-Config atua como um assistente de visão computacional e troubleshooting para técnicos de campo. Ele identifica estados de LEDs, transcreve seriais e automatiza a configuração de terminais diretamente no local, integrando playbooks de acesso e IPRAN.',
+    longDescription: 'O CPE Auto-Config é uma automação que utiliza IA para atuar como um assistente de troubleshooting para técnicos de campo, automatizando a configuração de terminais diretamente no local.',
     features: [
       {
-        category: 'Interpretação & Visão',
+        category: 'Configuração',
         items: [
-          'Interpretação automática de LEDs e Etiquetas via smartphone',
-          'Identificação imediata de estados: normal, falha ou degranadação',
-          'Captura e transcrição de Serial Number e MAC para o MODOS'
-        ]
-      },
-      {
-        category: 'Troubleshooting & Escalonamento',
-        items: [
-          'Diagnóstico automático baseado em playbooks (Acesso, IPRAN e BBIP)',
-          'Orientação passo a passo para correção (checklist inteligente)',
-          'Escalonamento inteligente ao N2 com diagnóstico inicial e evidências'
-        ]
-      },
-      {
-        category: 'Validação Técnica',
-        items: [
-          'Validação de instalação física e fachada via fotos',
-          'Correlação geográfica da instalação com Endereço OS Modos',
-          'Transcrição de Carta do Provedor (IP, Autenticação, Login) para MODOS',
-          'Certidão de Throughput, Latência, Jitter e Perda de Pacotes'
+          'Automação de configuração de CPEs',
+          'Suporte passo a passo para técnicos',
+          'Validação de instalação física'
         ]
       }
     ],
@@ -623,126 +578,310 @@ export const AI_AGENTS: AIAgent[] = [
       {
         role: 'Técnico de Campo',
         items: [
-          'Maior autonomia e ativação na primeira visita',
-          'Redução de erros no registro de informações seriais',
-          'Menor necessidade de suporte direto do N2/N3'
-        ]
-      },
-      {
-        role: 'Operação B2B',
-        items: [
-          'Garantia de qualidade na entrega de BLC Terceiros',
-          'Redução de retrabalho e tempo de resolução de falhas',
-          'Escalabilidade e padronização do suporte técnico'
+          'Maior autonomia na ativação',
+          'Redução de erros de configuração',
+          'Menor tempo de visita técnica'
         ]
       }
     ],
     icon: 'Router',
-    inputs: ['Fotos de Hardware (LEDs/Etiquetas)', 'Fotos de Instalação e Fachada', 'Geolocalização (GPS)', 'Carta do Provedor'],
-    outputs: ['Configuração de CPE Aplicada', 'Certidão de Desempenho (Throughput/Latência)', 'Checklist de Aceite técnico', 'Transcrição técnica para MODOS']
+    inputs: ['Dados do Equipamento', 'Status de LEDs', 'Configurações de Rede'],
+    outputs: ['Configuração Aplicada', 'Status de Validação']
   },
   {
     id: 'fabia',
     name: 'FABIA',
-    department: 'ESO - Projetos',
-    domain: 'Processos & SLA',
+    department: 'Governo',
+    domain: 'Conhecimento e Documentação',
     execution: 'Gestão & Qualidade Operacional',
-    owner: 'ESO Projetos',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
+    owner: 'Julia Mendonca Ferreira',
+    ownerEmail: 'julia.ferreira@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Analista de Portfolio Governo',
     description: 'Analista executiva de portfolio de projetos voltada para alta gestão.',
     mission: 'Transformar planilhas complexas em resumos executivos acionáveis.',
-    longDescription: 'Especialista em processar grandes volumes de dados de projetos (planilhas) para gerar visões de status, pendências críticas e placares de produção, garantindo visibilidade total para o cliente.',
+    longDescription: 'É uma agente de IA Especialista em processar grandes volumes de dados de projetos para gerar visões de status e pendências críticas para o setor de Governo.',
     features: [
       {
-        category: 'Análise de Portfolio',
+        category: 'Análise',
         items: [
-          'Consolidação de dados de GP/GCC e IDPs',
-          'Identificação proativa de pendências de aquisição',
-          'Geração de Ranking Executivo de projetos críticos'
-        ]
-      },
-      {
-        category: 'Relatórios Sociais',
-        items: [
-          'Criação de Resumos Padrão para apresentações',
-          'Placar de produção (Internalizados/Cadastrados)',
-          'Simulação de impacto de atraso por projeto'
+          'Consolidação de dados de projetos',
+          'Identificação de pendências críticas',
+          'Geração de relatórios executivos'
         ]
       }
     ],
     benefits: [
       {
-        role: 'Gestores de Projetos',
+        role: 'Gestão',
         items: [
-          'Visão 100% atualizada do status do portfolio',
-          'Foco imediato nos projetos com risco de atraso',
-          'Redução do tempo de preparação de reports'
-        ]
-      },
-      {
-        role: 'Clientes Corporativos',
-        items: [
-          'Transparência total na evolução da rede contratada',
-          'Rastreabilidade de prazos e investimentos',
-          'Relatórios executivos prontos para diretoria'
+          'Visão atualizada do portfolio',
+          'Foco em projetos críticos',
+          'Agilidade na tomada de decisão'
         ]
       }
     ],
     icon: 'BarChart4',
-    inputs: ['Planilhas de Projetos', 'Dados de IDP/GCC', 'Status de Rollout', 'Ordens de Serviço'],
-    outputs: ['Resumo Executivo (Standard)', 'Placar de Produção', 'Filtro de Projetos Críticos', 'Análise de Risco']
+    inputs: ['Planilhas de Projetos', 'Status de Rollout'],
+    outputs: ['Resumo Executivo', 'Análise de Risco']
   },
   {
     id: 'leia',
-    name: 'LEIA',
-    department: 'ESO - Comercial',
-    domain: 'Documentos & Backlog',
-    execution: 'Relatório / Validação Técnica',
-    owner: 'ESO Bidding',
-    ownerEmail: 'agentes.ia@claro.com.br',
-    type: 'GenAI',
+    name: 'LÉIA',
+    department: 'Governo',
+    domain: 'Análise e Gestão',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Julia Mendonca Ferreira',
+    ownerEmail: 'julia.ferreira@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'Assistente de Editais',
     description: 'Assistente analítica de editais complexos e propostas comerciais.',
     mission: 'Garantir viabilidade técnica e mitigar riscos financeiros em contratações.',
-    longDescription: 'Realiza a leitura profunda de editais técnicos (ex: CODEVASF) para extrair requisitos de SLA, multas, regras de faturamento e compor o parecer de viabilidade técnica e financeira.',
+    longDescription: 'É uma agente de IA que realiza leitura profunda de editais técnicos para extrair requisitos de SLA e regras de faturamento para o setor de Governo.',
     features: [
       {
         category: 'Análise Documental',
         items: [
-          'Resumo analítico consolidado de editais PDF',
-          'Extração de métricas de SLA e Vigência Contratual',
-          'Mapeamento de exigências técnicas e equipamentos'
-        ]
-      },
-      {
-        category: 'Mitigação de Risco',
-        items: [
-          'Simulação de glosas e penalidades por atraso',
-          'Checklist de viabilidade Go/No-Go',
-          'Cruzamento de viabilidades de fornecedores (Excel)'
+          'Resumo analítico de editais',
+          'Extração de métricas de SLA',
+          'Mapeamento de exigências técnicas'
         ]
       }
     ],
     benefits: [
       {
-        role: 'Área Comercial',
+        role: 'Comercial',
         items: [
-          'Decisão técnica baseada em dados reais do edital',
-          'Agilidade na resposta a editais complexos',
-          'Redução de riscos com cláusulas abusivas'
-        ]
-      },
-      {
-        role: 'Engenharia & SLA',
-        items: [
-          'Clareza total sobre as métricas de desempenho exigidas',
-          'Planejamento de prazos alinhado à multa global',
-          'Identificação precoce de "última milha" crítica'
+          'Decisão baseada em dados reais do edital',
+          'Redução de riscos financeiros',
+          'Agilidade na resposta a editais'
         ]
       }
     ],
     icon: 'FileText',
-    inputs: ['Editais em PDF (Ex: Pregões)', 'Planilhas de Viabilidade', 'Cadernos Técnicos', 'Tabela de Preços'],
-    outputs: ['Parecer de Viabilidade', 'Resumo de Métricas de SLA', 'Simulação de Exposição Financeira', 'Checklist de Requisitos']
+    inputs: ['Editais em PDF', 'Cadernos Técnicos'],
+    outputs: ['Parecer de Viabilidade', 'Resumo de Métricas']
+  },
+  {
+    id: 'cme',
+    name: 'CME',
+    department: 'MSO Instalação',
+    domain: 'Gestão de Incidentes e Problemas',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Vandemberg De Franca Junior',
+    ownerEmail: 'vandemberg.junior@claro.com.br',
+    type: 'Anthropic - Claude',
+    tagline: 'Correlação de eventos massivos',
+    description: 'Identificação de padrões em falhas massivas para acelerar a recuperação.',
+    mission: 'Identificar padrões em falhas massivas para acelerar a recuperação.',
+    longDescription: 'O CME "Correlação de eventos massivos", é uma automação que utiliza IA para analisar grandes volumes de alarmes e eventos de rede para correlacionar falhas massivas, permitindo que as equipes de instalação e manutenção atuem com precisão na causa raiz.',
+    features: [
+      {
+        category: 'Correlação',
+        items: [
+          'Agrupamento inteligente de alarmes',
+          'Identificação de impacto por região',
+          'Predição de falhas em cascata'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Operação',
+        items: [
+          'Redução do tempo de diagnóstico',
+          'Menos tickets duplicados',
+          'Melhor priorização de equipes de campo'
+        ]
+      }
+    ],
+    icon: 'Activity',
+    inputs: ['Logs de Alarmes', 'Topologia de Rede'],
+    outputs: ['Mapa de Impacto', 'Causa Raiz Sugerida']
+  },
+  {
+    id: 'drrf',
+    name: 'DRRF',
+    department: 'MSO Instalação',
+    domain: 'Análise e Gestão',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Vandemberg De Franca Junior',
+    ownerEmail: 'vandemberg.junior@claro.com.br',
+    type: 'Anthropic - Claude',
+    tagline: 'Disponibilidade real de rotas fotônicas',
+    description: 'Garantia da resiliência da rede óptica através de análise de rotas.',
+    mission: 'Garantir a resiliência da rede óptica através de análise profunda de rotas.',
+    longDescription: 'O DRRF "Disponibilidade Real de Rotas Fotônicas", é uma automação que utiliza IA para verificar a integridade e disponibilidade das rotas fotônicas, identificando pontos de vulnerabilidade e sugerindo caminhos alternativos para manter a estabilidade da rede.',
+    features: [
+      {
+        category: 'Análise Óptica',
+        items: [
+          'Verificação de continuidade de rota',
+          'Cálculo de disponibilidade percentual',
+          'Mapeamento de fibras críticas'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Engenharia',
+        items: [
+          'Maior confiabilidade no backbone óptico',
+          'Prevenção de isolamentos de sites',
+          'Otimização do uso de infraestrutura'
+        ]
+      }
+    ],
+    icon: 'Activity',
+    inputs: ['Dados de OTDR', 'Inventário de Fibras'],
+    outputs: ['Relatório de Disponibilidade', 'Mapa de Riscos']
+  },
+  {
+    id: 'rtv-digital',
+    name: 'RTV DIGITAL',
+    department: 'MSO Instalação',
+    domain: 'Relatórios e Validação',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Vandemberg De Franca Junior',
+    ownerEmail: 'vandemberg.junior@claro.com.br',
+    type: 'Anthropic - Claude',
+    tagline: 'Download e arquivamento de RVT Digital',
+    description: 'Automatização da gestão documental de vistorias técnicas.',
+    mission: 'Automatizar a gestão documental de vistorias técnicas.',
+    longDescription: 'O RTV DIGITAL é uma automação que utiliza IA para realizar o processamento de vistorias técnicas (RVT), organizando o download e arquivamento seguro dos arquivos para consulta das equipes de instalação.',
+    features: [
+      {
+        category: 'Automação',
+        items: [
+          'Download em lote de documentos',
+          'Indexação automática por projeto',
+          'Backup em nuvem estruturado'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Administrativo',
+        items: [
+          'Eliminação de tarefas manuais de download',
+          'Fácil localização de evidências de vistoria',
+          'Organização padronizada do histórico'
+        ]
+      }
+    ],
+    icon: 'FileText',
+    inputs: ['Links de Vistoria', 'Metadados de Projetos'],
+    outputs: ['Repositório Organizado', 'Log de Arquivamento']
+  },
+  {
+    id: 'irtoa',
+    name: 'IRTOA',
+    department: 'MSO Instalação',
+    domain: 'Automação Processual',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Vandemberg De Franca Junior',
+    ownerEmail: 'vandemberg.junior@claro.com.br',
+    type: 'Anthropic - Claude',
+    tagline: 'Integração inteligente entre REConline e TOA',
+    description: 'Sincronização de dados de solicitações para otimização de campo.',
+    mission: 'Sincronizar dados de solicitações para otimização de campo.',
+    longDescription: 'O IRTOA é uma automação que utiliza IA para atuar na ponte entre o sistema REConline e o TOA (Field Service), garantindo que as informações de campo estejam sempre atualizadas e precisas.',
+    features: [
+      {
+        category: 'Sincronização',
+        items: [
+          'Atualização em tempo real de status',
+          'Mapeamento de campos técnicos',
+          'Validação de dados de entrada'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Campo',
+        items: [
+          'Dados precisos no aplicativo do técnico',
+          'Menor retrabalho de preenchimento',
+          'Melhor cumprimento de janelas de serviço'
+        ]
+      }
+    ],
+    icon: 'Activity',
+    inputs: ['Dados do REConline', 'Status do TOA'],
+    outputs: ['Base Sincronizada', 'Alertas de Divergência']
+  },
+  {
+    id: 'istoa',
+    name: 'ISTOA',
+    department: 'MSO Instalação',
+    domain: 'Automação Processual',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Vandemberg De Franca Junior',
+    ownerEmail: 'vandemberg.junior@claro.com.br',
+    type: 'Anthropic - Claude',
+    tagline: 'Integração inteligente entre Siebel e TOA',
+    description: 'Automatização do fluxo de tickets entre sistemas de atendimento e campo.',
+    mission: 'Automatizar o fluxo de tickets entre sistemas de atendimento e campo.',
+    longDescription: 'O ISTOA "Integração Siebel - TOA" é uma automação que utiliza IA para sincronizar as ordens de serviço geradas no Siebel com o agendamento no TOA, otimizando o despacho de técnicos para o mercado B2B.',
+    features: [
+      {
+        category: 'Workflow',
+        items: [
+          'Geração automática de tarefas no TOA',
+          'Retorno de conclusão para o Siebel',
+          'Anexo de evidências fotográficas'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Suporte',
+        items: [
+          'Visibilidade total do status da OS',
+          'Redução do delay entre abertura e despacho',
+          'Garantia de integridade do ticket'
+        ]
+      }
+    ],
+    icon: 'Activity',
+    inputs: ['Tickets Siebel', 'Agendas TOA'],
+    outputs: ['OS Despachada', 'Confirmação de Execução']
+  },
+  {
+    id: 'painel-fila',
+    name: 'PAINELDEFILA',
+    department: 'MSO Instalação',
+    domain: 'Análise e Gestão',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Vandemberg De Franca Junior',
+    ownerEmail: 'vandemberg.junior@claro.com.br',
+    type: 'Anthropic - Claude',
+    tagline: 'Painel de fila de atendimento - Técnico de AT',
+    description: 'Otimização da distribuição de carga de trabalho e tempos de espera.',
+    mission: 'Otimizar a distribuição de carga de trabalho e tempos de espera.',
+    longDescription: 'O PAINELDEFILA é uma automação que utiliza IA para monitorar a fila de chamados técnicos, priorizando atendimentos baseados em criticidade e disponibilidade geográfica via Anthropic Claude.',
+    features: [
+      {
+        category: 'Gestão de Fila',
+        items: [
+          'Placar em tempo real de chamados',
+          'Priorização automática por SLA',
+          'Visão por clusters geográficos'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Coordenação',
+        items: [
+          'Equilíbrio na carga dos técnicos',
+          'Redução do tempo de espera do cliente',
+          'Visibilidade de gargalos na operação'
+        ]
+      }
+    ],
+    icon: 'BarChart4',
+    inputs: ['Base de Chamados', 'Posicionamento de Técnicos'],
+    outputs: ['Placar de Gestão', 'Sugestão de Despacho']
   }
 ];

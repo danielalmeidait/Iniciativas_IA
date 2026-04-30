@@ -1,110 +1,190 @@
-import React, { useState, useMemo } from 'react';
+/**
+ * @file Catalog.tsx
+ * @description Componente responsável por exibir a grade de iniciativas e os cartões de estatísticas por área.
+ */
+
+import React, { useMemo } from 'react';
 import { 
-  Search, 
-  ExternalLink, 
-  FileSearch, 
-  Code, 
-  Activity, 
   ShieldCheck, 
   ChevronRight,
-  Filter,
-  TrendingUp,
   BrainCircuit,
   Mail,
-  X,
-  Layers,
-  Settings2,
   Building2,
-  Cpu,
-  Users,
+  FileSearch,
+  Code,
+  Activity,
   Router,
   BarChart4,
   FileText,
-  Sparkles
+  Sparkles,
+  LayoutGrid,
+  Search
 } from 'lucide-react';
-import { AIAgent, AIType, BusinessDomain, ExecutionType } from '../types';
+import { AIAgent } from '../types';
 import { AI_AGENTS } from '../data';
 import { motion, AnimatePresence } from 'motion/react';
 
-const icons: Record<string, React.ElementType> = {
+// ─── Mapeamento de Ícones ───────────────────────────────────────────────────
+
+/** Dicionário de ícones do Lucide para renderização dinâmica baseada em strings */
+const lucideIcons: Record<string, React.ElementType> = {
   FileSearch,
   Code,
   Activity,
   ShieldCheck,
   Router,
   BarChart4,
-  FileText
+  FileText,
+  Building2,
+  LayoutGrid
 };
 
+/**
+ * Renderiza um ícone baseado em uma string (URL ou nome do componente Lucide).
+ */
 const RenderIcon = ({ icon, className }: { icon: string; className: string }) => {
   if (icon.includes('.')) {
     return <img src={`./${icon}`} alt="Logo" className={`${className} object-contain`} />;
   }
-  const Icon = icons[icon] || BrainCircuit;
+  const Icon = lucideIcons[icon] || BrainCircuit;
   return <Icon className={className} />;
 };
 
+// ─── Tipagem das Props ──────────────────────────────────────────────────────
+
 interface CatalogProps {
+  /** Callback acionado ao selecionar um agente */
   onSelect: (agent: AIAgent) => void;
+  /** Termo de busca atual */
   search: string;
-  executionFilters: ExecutionType[];
-  domainFilter: BusinessDomain | 'All';
-  setDomainFilter: (domain: BusinessDomain | 'All') => void;
+  /** Lista de filtros de domínio ativos */
+  domainFilters: string[];
+  /** Lista de filtros de departamento ativos */
   departmentFilters: string[];
+  /** Função para atualizar os filtros de departamento */
+  setDepartmentFilters: React.Dispatch<React.SetStateAction<string[]>>;
+  /** ID do último agente visualizado (para realce visual) */
   lastSelectedId?: string;
 }
+
+// ─── Componente Principal ───────────────────────────────────────────────────
 
 export default function Catalog({ 
   onSelect, 
   search, 
-  executionFilters, 
-  domainFilter, 
-  setDomainFilter, 
+  domainFilters,
   departmentFilters,
+  setDepartmentFilters,
   lastSelectedId
 }: CatalogProps) {
+
+  // ─── Lógica de Filtragem ──────────────────────────────────────────────────
+
+  /** Lista filtrada de agentes baseada em busca, domínio e departamento */
   const filteredAgents = useMemo(() => {
     return AI_AGENTS.filter(agent => {
-      const matchesSearch = agent.name.toLowerCase().includes(search.toLowerCase()) || 
-                            agent.description.toLowerCase().includes(search.toLowerCase());
-      const matchesExecution = executionFilters.length === 0 || executionFilters.includes(agent.execution);
-      const matchesDomain = domainFilter === 'All' || agent.domain === domainFilter;
+      const matchesSearch = 
+        agent.name.toLowerCase().includes(search.toLowerCase()) || 
+        agent.description.toLowerCase().includes(search.toLowerCase()) ||
+        agent.tagline?.toLowerCase().includes(search.toLowerCase());
+      
+      const matchesDomain = domainFilters.length === 0 || domainFilters.includes(agent.domain);
       const matchesDept = departmentFilters.length === 0 || departmentFilters.includes(agent.department);
-      return matchesSearch && matchesExecution && matchesDomain && matchesDept;
+      
+      return matchesSearch && matchesDomain && matchesDept;
     });
-  }, [search, executionFilters, domainFilter, departmentFilters]);
+  }, [search, domainFilters, departmentFilters]);
 
-  const stats = useMemo(() => {
-    return {
-      rede: AI_AGENTS.filter(a => a.domain === 'Rede & Equipamento').length,
-      processos: AI_AGENTS.filter(a => a.domain === 'Processos & SLA').length,
-      documentos: AI_AGENTS.filter(a => a.domain === 'Documentos & Backlog').length,
-      total: AI_AGENTS.length,
-    };
+  /** Estatísticas de quantidade por departamento */
+  const departmentStats = useMemo(() => {
+    const stats: Record<string, number> = {};
+    AI_AGENTS.forEach(agent => {
+      stats[agent.department] = (stats[agent.department] || 0) + 1;
+    });
+    return stats;
   }, []);
+
+  const totalIniciativas = AI_AGENTS.length;
+
+  // ─── Handlers ─────────────────────────────────────────────────────────────
+
+  /**
+   * Alterna o filtro de departamento. 
+   * Se for 'All', limpa os filtros. Caso contrário, aplica seleção única.
+   */
+  const toggleDept = (dept: string) => {
+    if (dept === 'All' || departmentFilters.includes(dept)) {
+      setDepartmentFilters([]);
+      return;
+    }
+    setDepartmentFilters([dept]);
+  };
+
+  // ─── Renderização ──────────────────────────────────────────────────────────
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Domain Quick-Toggle Pills (Keeping these as secondary local filters) */}
-      <div className="flex flex-wrap gap-3 mb-10 pb-6 border-b border-gray-100">
-        <button 
-          onClick={() => setDomainFilter('All')}
-          className={`px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${domainFilter === 'All' ? 'bg-gray-900 text-white shadow-md' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'}`}
+      
+      {/* ── Seção de Estatísticas (Filtros por Área) ── */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 mb-10 pb-8 border-b border-gray-100">
+        
+        {/* Card de Totalização */}
+        <button
+          onClick={() => toggleDept('All')}
+          className={`group flex flex-col p-4 rounded-2xl border transition-all text-left ${
+            departmentFilters.length === 0 
+              ? 'bg-gray-900 border-gray-900 shadow-lg shadow-gray-900/10' 
+              : 'bg-white border-gray-100 hover:border-gray-900/30'
+          }`}
         >
-          Tudo
+          <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-colors ${
+            departmentFilters.length === 0 ? 'bg-white/20 text-white' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'
+          }`}>
+            <LayoutGrid className="w-4 h-4" />
+          </div>
+          <span className="text-[10px] font-black uppercase tracking-widest mb-1 text-gray-400">Total</span>
+          <div className="flex items-baseline gap-1">
+            <span className={`text-2xl font-black ${departmentFilters.length === 0 ? 'text-white' : 'text-gray-900'}`}>
+              {totalIniciativas}
+            </span>
+          </div>
         </button>
-        {['Rede & Equipamento', 'Processos & SLA', 'Documentos & Backlog'].map((dom) => (
-          <button
-            key={dom}
-            onClick={() => setDomainFilter(dom as any)}
-            className={`px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${domainFilter === dom ? 'bg-claro-red text-white shadow-md shadow-claro-red/20' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'}`}
-          >
-            {dom}
-          </button>
-        ))}
+
+        {/* Cards por Departamento */}
+        {Object.entries(departmentStats).map(([dept, count]) => {
+          const isActive = departmentFilters.includes(dept);
+          return (
+            <button
+              key={dept}
+              onClick={() => toggleDept(dept)}
+              className={`group flex flex-col p-4 rounded-2xl border transition-all text-left ${
+                isActive 
+                  ? 'bg-claro-red border-claro-red shadow-lg shadow-claro-red/10' 
+                  : 'bg-white border-gray-100 hover:border-claro-red/30'
+              }`}
+            >
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-colors ${
+                isActive ? 'bg-white/20 text-white' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'
+              }`}>
+                <Building2 className="w-4 h-4" />
+              </div>
+              <span className="text-[9px] font-black uppercase tracking-wider mb-1 text-gray-400 line-clamp-1 group-hover:text-gray-500">
+                {dept}
+              </span>
+              <div className="flex items-baseline gap-1">
+                <span className={`text-2xl font-black ${isActive ? 'text-white' : 'text-gray-900'}`}>
+                  {count}
+                </span>
+                <span className={`text-[10px] font-bold ${isActive ? 'text-white/60' : 'text-gray-400'}`}>
+                  {count === 1 ? 'item' : 'itens'}
+                </span>
+              </div>
+            </button>
+          );
+        })}
       </div>
 
-      {/* Grid */}
+      {/* ── Grade de Iniciativas ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <AnimatePresence mode="popLayout">
           {filteredAgents.map((agent) => {
@@ -122,34 +202,37 @@ export default function Catalog({
                     : 'border-gray-100 hover:border-claro-red/20'
                 }`}
               >
+                {/* Selo BeOn Labs (High Potential) */}
                 {agent.isHighPotential && (
                   <div className="absolute top-4 right-4 z-10">
-                    <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-claro-red to-red-600 text-white rounded-full text-[10px] font-black uppercase tracking-wider shadow-lg shadow-claro-red/20 animate-pulse-slow">
+                    <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-claro-red to-red-600 text-white rounded-full text-[10px] font-black uppercase tracking-wider shadow-lg shadow-claro-red/20">
                       <Sparkles className="w-2.5 h-2.5" />
                       BeOn Labs
                     </div>
                   </div>
                 )}
-                {/* Header Section */}
+
+                {/* Cabeçalho do Card */}
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 group-hover:bg-claro-red group-hover:border-claro-red group-hover:scale-105 transition-all duration-300 p-2">
+                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 group-hover:bg-claro-red group-hover:border-claro-red group-hover:scale-105 transition-all duration-300 p-2 shadow-sm">
                     <RenderIcon icon={agent.icon} className="w-full h-full text-claro-red group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 tracking-tight group-hover:text-claro-red transition-colors">{agent.name}</h3>
-                    <div className="flex items-center gap-2 text-gray-400 text-xs font-semibold">
-                      <Users className="w-3 h-3" />
-                      Owner: {agent.owner}
+                    <h3 className="text-xl font-black text-gray-900 tracking-tight group-hover:text-claro-red transition-colors">
+                      {agent.name}
+                    </h3>
+                    <div className="text-gray-400 text-[11px] font-bold leading-tight mt-1 uppercase tracking-wider">
+                      {agent.tagline}
                     </div>
                   </div>
                 </div>
 
-                {/* Description */}
-                <p className="text-gray-500 text-[14px] leading-relaxed mb-8 flex-grow">
+                {/* Descrição Curta */}
+                <p className="text-gray-500 text-xs leading-relaxed mb-8 flex-grow line-clamp-4">
                   {agent.description}
                 </p>
 
-                {/* Footer Section */}
+                {/* Rodapé do Card (Responsabilidade e Ação) */}
                 <div className="pt-6 border-t border-gray-50 mt-auto">
                   <div className="flex flex-col gap-2 mb-4">
                     <div className="flex items-center gap-2 text-gray-500 font-bold uppercase text-[10px] tracking-widest">
@@ -160,7 +243,7 @@ export default function Catalog({
                       <Mail className="w-3 h-3" />
                       <a 
                         href={`mailto:${agent.ownerEmail}`} 
-                        className="hover:text-claro-red transition-colors font-medium"
+                        className="hover:text-claro-red transition-colors font-medium underline underline-offset-4 decoration-gray-100 hover:decoration-claro-red/30"
                         onClick={(e) => e.stopPropagation()}
                       >
                         {agent.ownerEmail}
@@ -170,7 +253,7 @@ export default function Catalog({
                   
                   <button 
                     onClick={() => onSelect(agent)}
-                    className="w-full py-3 bg-gray-50 text-gray-900 font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-claro-red hover:text-white transition-all group/btn"
+                    className="w-full py-3 bg-gray-50 text-gray-900 font-black uppercase tracking-widest text-[10px] rounded-xl flex items-center justify-center gap-2 hover:bg-claro-red hover:text-white transition-all group/btn shadow-sm active:scale-95"
                   >
                     Ver Detalhes do Agente
                     <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -182,13 +265,22 @@ export default function Catalog({
         </AnimatePresence>
       </div>
 
+      {/* ── Estado Vazio ── */}
       {filteredAgents.length === 0 && (
-        <div className="text-center py-20">
-          <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="text-center py-24">
+          <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner">
             <Search className="w-10 h-10 text-gray-300" />
           </div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Nenhuma iniciativa encontrada</h3>
-          <p className="text-gray-500">Tente ajustar seus filtros de busca para encontrar o que procura.</p>
+          <h3 className="text-2xl font-black text-gray-900 mb-2">Nenhuma iniciativa encontrada</h3>
+          <p className="text-gray-500 font-medium">Tente ajustar seus filtros ou termos de busca.</p>
+          <button 
+            onClick={() => {
+              // Ações para resetar filtros poderiam ser disparadas aqui
+            }}
+            className="mt-6 text-claro-red font-bold text-sm hover:underline"
+          >
+            Limpar filtros ativos
+          </button>
         </div>
       )}
     </div>
