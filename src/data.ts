@@ -78,7 +78,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'aria-logo.png',
     inputs: ['Documentos de Requisitos', 'Arquivos CAD', 'PDF técnico', 'Normas regulatórias', 'Escopos de projeto'],
     outputs: ['Análise crítica detalhada (qualidade/clarza/completude)', 'Arquivo corrigido para download', 'Critérios de aceite', 'Pontos de atenção técnicos'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_70b25520-6647-aeb0-a360-aedb534e2b5e&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_70b25520-6647-aeb0-a360-aedb534e2b5e&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'elisa',
@@ -132,7 +133,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'elisa-logo.png',
     inputs: ['Requisitos brutos', 'Regras de Negócio', 'Documentos de negócio', 'Feedbacks de usuários'],
     outputs: ['User Story estruturada', 'Regras de Negócio detalhadas', 'Sugestão Técnica (Código)', 'Critérios de Aceite (Gherkin)'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_abb80b91-c6f5-e7b3-6d69-b9a1bc35d311&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_abb80b91-c6f5-e7b3-6d69-b9a1bc35d311&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'facto-ia',
@@ -170,7 +172,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'factoIA-logo.png',
     inputs: ['Dados do FETEC', 'Logs de equipamentos', 'Histórico de RECs'],
     outputs: ['FCA estruturado', 'Sugestão de RCA', 'Parecer de fechamento'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_36512c08-a28f-34be-f604-087a975b842f&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_36512c08-a28f-34be-f604-087a975b842f&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'iana',
@@ -208,7 +211,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'IAna-logo.png',
     inputs: ['Lista de designações por e-mail', 'Base de dados de topologia'],
     outputs: ['Relatório de impacto por site', 'Risco de isolamento detalhado', 'Sugestão de e-mail para cliente'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a04ded4b-18a3-ea81-d98d-7d649ad0326c&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a04ded4b-18a3-ea81-d98d-7d649ad0326c&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'siria',
@@ -247,7 +251,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Siria-logo.png',
     inputs: ['Histórico de observações (Arquivo texto)', 'Logs do SIR'],
     outputs: ['Resumo Executivo', 'Linha do Tempo', 'Plano de Ações Preventivas', 'FCA Completo'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_22360653-26c8-57e4-88fd-e63e00f17f84&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_22360653-26c8-57e4-88fd-e63e00f17f84&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'check-ia',
@@ -285,7 +290,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'CheckIA-logo.png',
     inputs: ['Checklist Pré-atividade', 'Checklist Pós-atividade', 'Tabelas de Roteamento'],
     outputs: ['Relatório de divergências', 'Status de conformidade', 'Destaques de alteração'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_ee211807-6c56-7c15-c4eO-f37443fbdd34&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_ee211807-6c56-7c15-c4eO-f37443fbdd34&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'confia',
@@ -323,7 +329,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'confIA-logo.png',
     inputs: ['Configuração Antes', 'Configuração Depois'],
     outputs: ['Relatório de diferenças (Diff)', 'Análise de impacto da mudança'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a95041b3-4087-5b58-4d3c-9504c8547f45&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a95041b3-4087-5b58-4d3c-9504c8547f45&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'deserth',
@@ -361,7 +368,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Deserth-logo.png',
     inputs: ['Dados de atendimentos', 'Métricas de SLA', 'Logs de produtividade'],
     outputs: ['Relatório de gargalos', 'Indicativos de falha', 'Pontos de melhoria operacional'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_f31ad6bd-b88a-875a-f928-153a54f75a4f&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_f31ad6bd-b88a-875a-f928-153a54f75a4f&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'sentinela',
@@ -399,7 +407,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Sentinela-logo.png',
     inputs: ['Gravações/Logs de chamadas', 'Tickets de escalonamento'],
     outputs: ['Nota de qualidade por atendimento', 'Relatório de inconsistências', 'Feedback para treinamento'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_415b082b-466e-f804-b4d6-914444195cf8&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_415b082b-466e-f804-b4d6-914444195cf8&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'bancodoc',
@@ -437,7 +446,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'BancoDoc-logo.png',
     inputs: ['Planilhas de cadastro', 'Repositórios de documentos'],
     outputs: ['Relatório de pendências', 'Sugestão de correção de dados', 'Status de conformidade'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_553ea9cb-5d48-b169-3b82-ab4a655e4c59&source=embedded-builder'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_553ea9cb-5d48-b169-3b82-ab4a655e4c59&source=embedded-builder',
+    category: 'agent'
   },
   {
     id: 'automaton',
@@ -475,7 +485,8 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Autômaton-logo.png',
     inputs: ['Base de dados de produção', 'Calendário de produção'],
     outputs: ['Base filtrada por valores específicos', 'Alertas de vencimento', 'Plano de produção diário'],
-    accessUrl: 'https://m365.cloud.microsoft/chat/entity1-d870f6cd-4aa5-4d42-9626-b690c041429/eyJpZCI6ImNiOTA3ZjU2LWYzMmEtNGU5YS04OTkzLWVjMWJjNGJhNTI1NiIsInNjZW5hcmlvIjoibGF1bmNoY29waWxvdGV4dGVuc2lvbiIsInByb3BlcnRpZXMiOnsiY2xpY2tUaW1lc3RhbXAiOiJXZWQgSmFuIDI4IDIwMjYifSwidmVyc2lvbiI6MSwic291cmNlIjoib25BcHBJbnN0YWxsYXRpb24iLCJjb3JyZWxhdGlvbklkIjoiZmRjMjg3Y2UtMmJhNC00MDk0LTk4NjktODRkZThhMGRmZDNmIiwiaXNVcGdyYWRlIjpmYWxzZX0='
+    accessUrl: 'https://m365.cloud.microsoft/chat/entity1-d870f6cd-4aa5-4d42-9626-b690c041429/eyJpZCI6ImNiOTA3ZjU2LWYzMmEtNGU5YS04OTkzLWVjMWJjNGJhNTI1NiIsInNjZW5hcmlvIjoibGF1bmNoY29waWxvdGV4dGVuc2lvbiIsInByb3BlcnRpZXMiOnsiY2xpY2tUaW1lc3RhbXAiOiJXZWQgSmFuIDI4IDIwMjYifSwidmVyc2lvbiI6MSwic291cmNlIjoib25BcHBJbnN0YWxsYXRpb24iLCJjb3JyZWxhdGlvbklkIjoiZmRjMjg3Y2UtMmJhNC00MDk0LTk4NjktODRkZThhMGRmZDNmIiwiaXNVcGdyYWRlIjpmYWxzZX0=',
+    category: 'agent'
   },
   {
     id: 'bia',
@@ -512,7 +523,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'bIA-logo.png',
     inputs: ['Planilha de backlog Excel', 'Dados de previsão de entrega'],
-    outputs: ['Relatórios de status diário', 'Gráficos de evolução', 'Alertas de ativação crítica']
+    outputs: ['Relatórios de status diário', 'Gráficos de evolução', 'Alertas de ativação crítica'],
+    category: 'agent'
   },
   {
     id: 'guara',
@@ -549,7 +561,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'ShieldCheck',
     inputs: ['Propostas de Projeto', 'Evidências Técnicas', 'Matriz de Riscos'],
-    outputs: ['Relatório Final Padronizado', 'Parecer Técnico/Executivo']
+    outputs: ['Relatório Final Padronizado', 'Parecer Técnico/Executivo'],
+    category: 'agent'
   },
   {
     id: 'cpe-auto',
@@ -586,7 +599,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'Router',
     inputs: ['Dados do Equipamento', 'Status de LEDs', 'Configurações de Rede'],
-    outputs: ['Configuração Aplicada', 'Status de Validação']
+    outputs: ['Configuração Aplicada', 'Status de Validação'],
+    category: 'automation'
   },
   {
     id: 'fabia',
@@ -623,7 +637,9 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'BarChart4',
     inputs: ['Planilhas de Projetos', 'Status de Rollout'],
-    outputs: ['Resumo Executivo', 'Análise de Risco']
+    outputs: ['Resumo Executivo', 'Análise de Risco'],
+    accessUrl: 'https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_0ef6e3cb-1cf0-4593-b990-049cd544336e',
+    category: 'agent'
   },
   {
     id: 'leia',
@@ -660,7 +676,9 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'FileText',
     inputs: ['Editais em PDF', 'Cadernos Técnicos'],
-    outputs: ['Parecer de Viabilidade', 'Resumo de Métricas']
+    outputs: ['Parecer de Viabilidade', 'Resumo de Métricas'],
+    accessUrl: 'https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_8d3f553d-d8f0-e60c-cfaa-8f6aedcf510c',
+    category: 'agent'
   },
   {
     id: 'cme',
@@ -697,7 +715,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'Activity',
     inputs: ['Logs de Alarmes', 'Topologia de Rede'],
-    outputs: ['Mapa de Impacto', 'Causa Raiz Sugerida']
+    outputs: ['Mapa de Impacto', 'Causa Raiz Sugerida'],
+    category: 'automation'
   },
   {
     id: 'drrf',
@@ -734,7 +753,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'Activity',
     inputs: ['Dados de OTDR', 'Inventário de Fibras'],
-    outputs: ['Relatório de Disponibilidade', 'Mapa de Riscos']
+    outputs: ['Relatório de Disponibilidade', 'Mapa de Riscos'],
+    category: 'automation'
   },
   {
     id: 'rtv-digital',
@@ -771,7 +791,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'FileText',
     inputs: ['Links de Vistoria', 'Metadados de Projetos'],
-    outputs: ['Repositório Organizado', 'Log de Arquivamento']
+    outputs: ['Repositório Organizado', 'Log de Arquivamento'],
+    category: 'automation'
   },
   {
     id: 'irtoa',
@@ -808,7 +829,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'Activity',
     inputs: ['Dados do REConline', 'Status do TOA'],
-    outputs: ['Base Sincronizada', 'Alertas de Divergência']
+    outputs: ['Base Sincronizada', 'Alertas de Divergência'],
+    category: 'automation'
   },
   {
     id: 'istoa',
@@ -845,7 +867,8 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'Activity',
     inputs: ['Tickets Siebel', 'Agendas TOA'],
-    outputs: ['OS Despachada', 'Confirmação de Execução']
+    outputs: ['OS Despachada', 'Confirmação de Execução'],
+    category: 'automation'
   },
   {
     id: 'painel-fila',
@@ -882,6 +905,7 @@ export const AI_AGENTS: AIAgent[] = [
     ],
     icon: 'BarChart4',
     inputs: ['Base de Chamados', 'Posicionamento de Técnicos'],
-    outputs: ['Placar de Gestão', 'Sugestão de Despacho']
+    outputs: ['Placar de Gestão', 'Sugestão de Despacho'],
+    category: 'automation'
   }
 ];

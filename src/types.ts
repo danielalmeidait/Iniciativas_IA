@@ -78,4 +78,6 @@ export interface AIAgent {
   isHighPotential?: boolean;
   /** Link direto para acesso à interface do agente */
   accessUrl?: string;
+  /** Categoria da iniciativa: Agente ou Automação */
+  category: 'agent' | 'automation';
 }

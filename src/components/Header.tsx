@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Search, X, Layers, ChevronRight } from 'lucide-react';
+import { Search, X, Layers, ChevronRight, Bot, Sparkles, Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { DOMAINS } from '../data';
 
@@ -19,6 +19,8 @@ interface HeaderProps {
   toggleDomainFilter: (dom: string) => void;
   /** Callback acionado ao clicar no logo/título (reseta seleção) */
   onLogoClick: () => void;
+  categoryFilter: 'all' | 'agent' | 'automation';
+  setCategoryFilter: (val: 'all' | 'agent' | 'automation') => void;
 }
 
 /**
@@ -34,10 +36,14 @@ export default function Header({
   setSearch, 
   domainFilters, 
   toggleDomainFilter, 
-  onLogoClick 
+  onLogoClick,
+  categoryFilter,
+  setCategoryFilter
 }: HeaderProps) {
   const [showSearch, setShowSearch] = useState(false);
   const [activeFilterMenu, setActiveFilterMenu] = useState<'domain' | null>(null);
+
+  const isLite = import.meta.env.VITE_APP_EDITION === 'lite';
 
   return (
     <header className="bg-white border-b border-gray-100 py-8 px-8 sticky top-0 z-50">
@@ -57,7 +63,7 @@ export default function Header({
               <span className="text-3xl font-black text-claro-red leading-tight">Iniciativas IA</span>
             </div>
             <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest mt-1.5">
-              Soluções inteligentes projetadas para elevar a eficiência operacional.
+              DOT - Rede Interna e Empresarial
             </span>
           </div>
         </div>
@@ -109,7 +115,38 @@ export default function Header({
             </button>
           </div>
 
+          {/* Toggle de Categoria (Agentes / Automações) */}
+          <div className="flex items-center gap-2 mr-2">
+            {!isLite && (
+              <button
+                onClick={() => setCategoryFilter(categoryFilter === 'automation' ? 'all' : 'automation')}
+                className={`flex flex-col items-center justify-center p-2 rounded-xl border transition-all ${
+                  categoryFilter === 'automation' 
+                    ? 'bg-blue-50 border-blue-200 text-blue-600 shadow-sm' 
+                    : 'bg-white border-gray-100 text-gray-400 hover:border-blue-100 hover:bg-blue-50/50'
+                }`}
+                title="Filtrar por Automações"
+              >
+                <Bot className="w-5 h-5 mb-0.5" />
+                <span className="text-[8px] font-bold uppercase tracking-wider">Automações</span>
+              </button>
+            )}
+
+            <button
+              onClick={() => setCategoryFilter(categoryFilter === 'agent' ? 'all' : 'agent')}
+              className={`flex flex-col items-center justify-center p-2 rounded-xl border transition-all ${
+                categoryFilter === 'agent' 
+                  ? 'bg-purple-50 border-purple-200 text-purple-600 shadow-sm' 
+                  : 'bg-white border-gray-100 text-gray-400 hover:border-purple-100 hover:bg-purple-50/50'
+              }`}
+              title="Filtrar por Copilot"
+            >
+              <Sparkles className="w-5 h-5 mb-0.5" />
+              <span className="text-[8px] font-bold uppercase tracking-wider">Copilot</span>
+            </button>
+          </div>
           {/* Menu de Filtro por Domínio */}
+          {!isLite && (
           <div className="relative">
             <button 
               onClick={() => setActiveFilterMenu(activeFilterMenu === 'domain' ? null : 'domain')}
@@ -158,6 +195,20 @@ export default function Header({
               )}
             </AnimatePresence>
           </div>
+          )}
+
+          {/* Botão de Cadastro de Iniciativa */}
+          <a
+            href="https://apps.powerapps.com/play/e/default-55247d4b-b435-47a5-881b-ca7627434e79/a/53cfb538-c10e-4ad9-b70a-96395f3e78af?tenantId=55247d4b-b435-47a5-881b-ca7627434e79"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-claro-red text-white px-4 py-2.5 rounded-xl border border-claro-red shadow-sm hover:bg-red-700 transition-all ml-2"
+          >
+            <Plus className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">
+              Cadastrar Iniciativa
+            </span>
+          </a>
         </div>
       </div>
     </header>

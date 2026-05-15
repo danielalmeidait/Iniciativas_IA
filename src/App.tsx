@@ -26,6 +26,9 @@ export default function App() {
   /** Lista de departamentos ativos (atualmente suporta seleção única via cards) */
   const [departmentFilters, setDepartmentFilters] = useState<string[]>([]);
   
+  /** Filtro de categoria (agent/automation/all) */
+  const [categoryFilter, setCategoryFilter] = useState<'all' | 'agent' | 'automation'>('all');
+  
   /** Agente selecionado para exibição no modal de detalhes */
   const [selectedAgent, setSelectedAgent] = useState<AIAgent | null>(null);
   
@@ -75,6 +78,7 @@ export default function App() {
     setSearch('');
     setDomainFilters([]);
     setDepartmentFilters([]);
+    setCategoryFilter('all');
   };
 
   // ─── Renderização ──────────────────────────────────────────────────────────
@@ -88,6 +92,8 @@ export default function App() {
         domainFilters={domainFilters}
         toggleDomainFilter={toggleDomainFilter}
         onLogoClick={handleReset}
+        categoryFilter={categoryFilter}
+        setCategoryFilter={setCategoryFilter}
       />
 
       {/* Conteúdo Principal */}
@@ -99,6 +105,7 @@ export default function App() {
           departmentFilters={departmentFilters}
           setDepartmentFilters={setDepartmentFilters}
           lastSelectedId={lastSelectedId || undefined}
+          categoryFilter={categoryFilter}
         />
 
         {/* Modal de Detalhes com Animação de Entrada/Saída */}
