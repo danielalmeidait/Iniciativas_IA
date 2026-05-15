@@ -36,6 +36,8 @@ jobs:
 
       - name: Build do projeto
         run: npm run build
+        env:
+          VITE_APP_EDITION: lite
 
       - name: Fazer upload dos artefatos
         uses: actions/upload-pages-artifact@v3
