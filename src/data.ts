@@ -139,7 +139,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'facto-ia',
     name: 'FACTOIA',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Diagnóstico e Investigação',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Ronaldo Evaristo Das Merces',
@@ -178,7 +178,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'iana',
     name: 'IAnA',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Luis Fernando Marks',
@@ -217,7 +217,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'siria',
     name: 'SirIA',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Luis Fernando Marks',
@@ -257,7 +257,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'check-ia',
     name: 'CHECKIA',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Relatórios e Validação',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Luis Fernando Marks',
@@ -296,7 +296,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'confia',
     name: 'CONFIA',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Diagnóstico e Investigação',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Luis Fernando Marks',
@@ -335,7 +335,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'deserth',
     name: 'DESERTH',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Marcia Cristina Souza',
@@ -374,7 +374,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'sentinela',
     name: 'SENTINELA',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Auditoria e Compliance',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Marcia Cristina Souza',
@@ -413,7 +413,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'bancodoc',
     name: 'BANCODOC',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Relatórios e Validação',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Marcia Cristina Souza',
@@ -452,7 +452,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'automaton',
     name: 'AUTOMATON',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Planejamento e Controle',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Zalboeno Lins Ferreira',
@@ -491,7 +491,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'bia',
     name: 'BIA',
-    department: 'LeSulConNe',
+    department: 'GCC - LESULCONNE',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Tiago Elias Bueno',
@@ -605,7 +605,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'fabia',
     name: 'FABIA',
-    department: 'Governo',
+    department: 'GCC - GOVERNO',
     domain: 'Conhecimento e Documentação',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Julia Mendonca Ferreira',
@@ -644,7 +644,7 @@ export const AI_AGENTS: AIAgent[] = [
   {
     id: 'leia',
     name: 'LÉIA',
-    department: 'Governo',
+    department: 'GCC - GOVERNO',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
     owner: 'Julia Mendonca Ferreira',
