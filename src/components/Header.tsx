@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Search, X, Layers, ChevronRight, Bot, Sparkles, Plus } from 'lucide-react';
+import { Search, X, Layers, ChevronRight, ChevronDown, Bot, Sparkles, Plus, FileText, Settings, FlaskConical } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { DOMAINS } from '../data';
 
@@ -21,6 +21,11 @@ interface HeaderProps {
   onLogoClick: () => void;
   categoryFilter: 'all' | 'agent' | 'automation';
   setCategoryFilter: (val: 'all' | 'agent' | 'automation') => void;
+  /** Callback opcional para retornar à página inicial */
+  onBackToHome?: () => void;
+  onNavigateToHome?: () => void;
+  onNavigateToFacilitador?: () => void;
+  onNavigateToExperimento?: () => void;
 }
 
 /**
@@ -38,10 +43,14 @@ export default function Header({
   toggleDomainFilter, 
   onLogoClick,
   categoryFilter,
-  setCategoryFilter
+  setCategoryFilter,
+  onBackToHome,
+  onNavigateToHome,
+  onNavigateToFacilitador,
+  onNavigateToExperimento,
 }: HeaderProps) {
   const [showSearch, setShowSearch] = useState(false);
-  const [activeFilterMenu, setActiveFilterMenu] = useState<'domain' | null>(null);
+  const [activeFilterMenu, setActiveFilterMenu] = useState<'domain' | 'actions' | null>(null);
 
   const isLite = import.meta.env.VITE_APP_EDITION === 'lite';
 
@@ -50,23 +59,39 @@ export default function Header({
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
         
         {/* Identidade Visual */}
-        <div 
-          className="flex items-center gap-6 cursor-pointer group"
-          onClick={onLogoClick}
-        >
-          <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center transition-transform overflow-hidden shadow-sm border border-gray-50">
-            <img src="./claro-logo.png" alt="Claro" className="w-full h-full object-contain" />
-          </div>
-          <div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-black text-gray-900 leading-tight">Catálogo de</span>
-              <span className="text-3xl font-black text-claro-red leading-tight">Iniciativas IA</span>
+        <div className="flex items-center gap-3">
+          {/* Botão Voltar — compacto, apenas ícone */}
+          {onBackToHome && (
+            <button
+              id="btn-back-to-home"
+              onClick={onBackToHome}
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-500 hover:text-[#da291c] hover:border-[#da291c]/30 hover:bg-red-50 transition-all shadow-sm flex-shrink-0"
+              title="Voltar à página inicial"
+              aria-label="Voltar"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          )}
+          <div 
+            className="flex items-center gap-6 cursor-pointer group"
+            onClick={onLogoClick}
+          >
+              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center transition-transform overflow-hidden shadow-sm border border-gray-50">
+                <img src="./claro-logo.png" alt="Claro" className="w-full h-full object-contain" />
+              </div>
+              <div>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-black text-gray-900 leading-tight">Catálogo de</span>
+                  <span className="text-3xl font-black text-claro-red leading-tight">Iniciativas IA</span>
+                </div>
+                <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest mt-1.5">
+                  DOT - Rede Interna e Empresarial
+                </span>
+              </div>
             </div>
-            <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest mt-1.5">
-              DOT - Rede Interna e Empresarial
-            </span>
           </div>
-        </div>
 
         {/* Ações e Filtros */}
         <div className="flex flex-wrap items-center justify-end gap-3">
@@ -197,18 +222,81 @@ export default function Header({
           </div>
           )}
 
-          {/* Botão de Cadastro de Iniciativa */}
-          <a
-            href="https://apps.powerapps.com/play/e/default-55247d4b-b435-47a5-881b-ca7627434e79/a/53cfb538-c10e-4ad9-b70a-96395f3e78af?tenantId=55247d4b-b435-47a5-881b-ca7627434e79"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-claro-red text-white px-4 py-2.5 rounded-xl border border-claro-red shadow-sm hover:bg-red-700 transition-all ml-2"
-          >
-            <Plus className="w-4 h-4" />
-            <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">
-              Cadastrar Iniciativa
-            </span>
-          </a>
+          {/* Botão de Cadastro de Iniciativa -> Menu de Ações */}
+          <div className="relative ml-2">
+            <button
+              onClick={() => setActiveFilterMenu(activeFilterMenu === 'actions' ? null : 'actions')}
+              className="flex items-center gap-2 bg-claro-red text-white px-4 py-2.5 rounded-xl border border-claro-red shadow-sm hover:bg-red-700 transition-all"
+            >
+              <Plus className="w-4 h-4" />
+              <span className="text-[10px] font-bold uppercase tracking-widest hidden sm:block">
+                Ações
+              </span>
+              <ChevronDown className={`w-3 h-3 transition-transform ${activeFilterMenu === 'actions' ? 'rotate-180' : ''}`} />
+            </button>
+
+            <AnimatePresence>
+              {activeFilterMenu === 'actions' && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setActiveFilterMenu(null)} />
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                    className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-gray-100 p-2 z-50 origin-top-right text-sm"
+                  >
+                    <div className="flex flex-col gap-1">
+                      <button
+                        onClick={() => {
+                          setActiveFilterMenu(null);
+                          if (onNavigateToHome) onNavigateToHome();
+                        }}
+                        className="flex items-center gap-3 w-full p-2.5 rounded-lg text-left text-xs font-bold text-gray-700 hover:bg-red-50 hover:text-claro-red transition-colors"
+                      >
+                        <Layers className="w-4 h-4" />
+                        Fluxo de Catalogação
+                      </button>
+                      
+                      <button
+                        onClick={() => {
+                          setActiveFilterMenu(null);
+                          if (onNavigateToFacilitador) onNavigateToFacilitador();
+                        }}
+                        className="flex items-center gap-3 w-full p-2.5 rounded-lg text-left text-xs font-bold text-gray-700 hover:bg-red-50 hover:text-claro-red transition-colors"
+                      >
+                        <Settings className="w-4 h-4" />
+                        Refinamento (Facilitador)
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          setActiveFilterMenu(null);
+                          if (onNavigateToExperimento) onNavigateToExperimento();
+                        }}
+                        className="flex items-center gap-3 w-full p-2.5 rounded-lg text-left text-xs font-bold text-gray-700 hover:bg-red-50 hover:text-claro-red transition-colors"
+                      >
+                        <FlaskConical className="w-4 h-4" />
+                        BeOn Labs (Experimento)
+                      </button>
+
+                      <div className="h-px bg-gray-100 my-1"></div>
+
+                      <a
+                        href="https://apps.powerapps.com/play/e/default-55247d4b-b435-47a5-881b-ca7627434e79/a/53cfb538-c10e-4ad9-b70a-96395f3e78af?tenantId=55247d4b-b435-47a5-881b-ca7627434e79"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setActiveFilterMenu(null)}
+                        className="flex items-center gap-3 w-full p-2.5 rounded-lg text-left text-xs font-bold text-claro-red bg-claro-red/5 hover:bg-claro-red hover:text-white transition-colors"
+                      >
+                        <Plus className="w-4 h-4" />
+                        Nova Iniciativa
+                      </a>
+                    </div>
+                  </motion.div>
+                </>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </div>
     </header>

@@ -6,3 +6,9 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Arquivos internos - não devem ser enviados ao GitHub
+.agent/
+AI_CONTEXT.md
+CHAT_HISTORY.md
+.opencode

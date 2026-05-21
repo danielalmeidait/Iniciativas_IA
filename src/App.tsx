@@ -8,6 +8,9 @@ import { AIAgent } from './types';
 import Header from './components/Header';
 import Catalog from './components/Catalog';
 import Details from './components/Details';
+import HomePage from './components/HomePage';
+import FacilitadorPage from './components/FacilitadorPage';
+import ExperimentoPage from './components/ExperimentoPage';
 import { AnimatePresence } from 'motion/react';
 
 /**
@@ -15,7 +18,10 @@ import { AnimatePresence } from 'motion/react';
  * Gerencia os filtros de busca, domínio e departamento, além da seleção do agente para o modal de detalhes.
  */
 export default function App() {
-  // ─── Estados de Filtro e Seleção ──────────────────────────────────────────
+  // ─── Estados de Navegação e Filtro ────────────────────────────────────────
+
+  /** Página atual: 'home' | 'catalog' | 'facilitador' | 'experimento' */
+  const [currentPage, setCurrentPage] = useState<'home' | 'catalog' | 'facilitador' | 'experimento'>('catalog');
   
   /** Termo de busca textual digitado pelo usuário */
   const [search, setSearch] = useState('');
@@ -81,8 +87,56 @@ export default function App() {
     setCategoryFilter('all');
   };
 
+  /** Navega para o catálogo de IA (Inovação Local) */
+  const handleGoToCatalog = () => {
+    setCurrentPage('catalog');
+    handleReset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  /** Navega para a página Facilitador de Inovação */
+  const handleGoToFacilitador = () => {
+    setCurrentPage('facilitador');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  /** Navega para a página Status das Iniciativas (Experimento) */
+  const handleGoToExperimento = () => {
+    setCurrentPage('experimento');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  /** Retorna para a página inicial */
+  const handleGoHome = () => {
+    setCurrentPage('home');
+    handleReset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // ─── Renderização ──────────────────────────────────────────────────────────
 
+  // Página Inicial: exibe o fluxo de catalogação
+  if (currentPage === 'home') {
+    return (
+      <HomePage
+        onNavigateToCatalog={handleGoToCatalog}
+        onNavigateToFacilitador={handleGoToFacilitador}
+        onNavigateToExperimento={handleGoToExperimento}
+      />
+    );
+  }
+
+  // Página Facilitador de Inovação e IA
+  if (currentPage === 'facilitador') {
+    return <FacilitadorPage onBack={handleGoToCatalog} />;
+  }
+
+  // Página Status das Iniciativas
+  if (currentPage === 'experimento') {
+    return <ExperimentoPage onBack={handleGoToCatalog} />;
+  }
+
+  // Página do Catálogo de IA
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans antialiased">
       {/* Cabeçalho de Navegação e Busca */}
@@ -94,6 +148,9 @@ export default function App() {
         onLogoClick={handleReset}
         categoryFilter={categoryFilter}
         setCategoryFilter={setCategoryFilter}
+        onNavigateToHome={() => { setCurrentPage('home'); window.scrollTo(0,0); }}
+        onNavigateToFacilitador={() => { setCurrentPage('facilitador'); window.scrollTo(0,0); }}
+        onNavigateToExperimento={() => { setCurrentPage('experimento'); window.scrollTo(0,0); }}
       />
 
       {/* Conteúdo Principal */}
@@ -125,9 +182,6 @@ export default function App() {
           <div className="w-12 h-1 bg-claro-red/20 rounded-full mb-4" />
           <p className="text-sm font-bold text-gray-900 tracking-tight">
             © 2026 Eficiência e Suporte Operacional
-          </p>
-          <p className="text-xs text-gray-400 font-medium uppercase tracking-[0.2em]">
-            Claro Brasil — Transformação Digital
           </p>
         </div>
       </footer>

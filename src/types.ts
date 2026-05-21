@@ -80,4 +80,8 @@ export interface AIAgent {
   accessUrl?: string;
   /** Categoria da iniciativa: Agente ou Automação */
   category: 'agent' | 'automation';
+  /** Estimativa de ganho em horas por dia */
+  dailySavingsHours?: number;
+  /** Estimativa de ganho em horas por mês (dias úteis) */
+  monthlySavingsHours?: number;
 }

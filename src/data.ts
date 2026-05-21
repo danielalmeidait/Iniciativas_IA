@@ -524,6 +524,7 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'bIA-logo.png',
     inputs: ['Planilha de backlog Excel', 'Dados de previsão de entrega'],
     outputs: ['Relatórios de status diário', 'Gráficos de evolução', 'Alertas de ativação crítica'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_ce7a4b2b-53a4-c0f5-18bd-b796a036294f',
     category: 'agent'
   },
   {
@@ -906,6 +907,44 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'BarChart4',
     inputs: ['Base de Chamados', 'Posicionamento de Técnicos'],
     outputs: ['Placar de Gestão', 'Sugestão de Despacho'],
+    category: 'automation'
+  },
+  {
+    id: 'isa',
+    name: 'ISA',
+    department: 'Recuperação',
+    domain: 'Análise e Gestão',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Equipe de Imersão/Recuperação',
+    ownerEmail: 'suporte.eso@claro.com.br',
+    type: 'Python + Google Gemini',
+    tagline: 'Inteligência em Suporte e Avaliação',
+    description: 'Agente focado em melhorar a recuperação de clientes e fluxo operacional.',
+    mission: 'Atuar de forma estratégica na recuperação de passivos e retenção inteligente.',
+    longDescription: 'A ISA (Inteligência em Suporte e Avaliação) é uma iniciativa estratégica focada na recuperação de processos. A agente analisa o histórico de clientes e o desempenho das abordagens para recomendar melhores trilhas de contato, aumentando as taxas de sucesso e retenção.',
+    features: [
+      {
+        category: 'Recuperação',
+        items: [
+          'Análise de perfil de ofensores',
+          'Sugestão de ações para recuperação de faturamento',
+          'Otimização do fluxo de experimentação e imersão'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Operacional',
+        items: [
+          'Aumento da taxa de recuperação',
+          'Visibilidade das tendências de comportamento de cliente',
+          'Agilidade na condução dos processos de imersão'
+        ]
+      }
+    ],
+    icon: 'Activity',
+    inputs: ['Base de dados de recuperação', 'Histórico de atendimento', 'Relatórios financeiros'],
+    outputs: ['Trilha de ação de recuperação', 'Insights comportamentais'],
     category: 'automation'
   }
 ];
