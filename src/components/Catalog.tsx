@@ -219,7 +219,7 @@ export default function Catalog({
     <div className="max-w-7xl mx-auto px-4 py-8">
       
       {/* ── Seção de Estatísticas (Filtros por Área) ── */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4 mb-10 pb-8 border-b border-gray-100">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-4 mb-10 pb-8 border-b border-gray-100">
         
         {/* Card de Totalização */}
         <button

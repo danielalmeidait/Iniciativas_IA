@@ -59,18 +59,100 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
           className="mb-6 flex justify-between items-start"
         >
           <div>
-            <h1 className="text-3xl font-black text-[#a61d15] leading-tight mb-1">
+            <h1 className="text-xl sm:text-3xl font-black text-[#a61d15] leading-tight mb-1">
               Status das iniciativas da Imersão
             </h1>
-            <h2 className="text-lg font-semibold text-gray-400">
+            <h2 className="text-sm sm:text-lg font-semibold text-gray-400">
               Fluxo de Experimentação e Pilotagem
             </h2>
           </div>
         </motion.div>
 
-        {/* Diagrama */}
-        <div className="relative mt-10 pb-10">
-          
+        {/* ── Diagrama Mobile (< md) ─────────────────────────────────────── */}
+        <div className="md:hidden mt-6 flex flex-col gap-5">
+
+          {/* Etapas como stepper vertical */}
+          <div className="flex flex-col gap-1.5">
+            {([
+              { label: 'Iniciativas',              color: '#a61d15' },
+              { label: 'Apresentação da Iniciativa', color: '#b92b27' },
+              { label: 'Refinamento',              color: '#b92b27' },
+              { label: 'Experimentação',            color: '#b92b27' },
+              { label: 'Comitê Executivo',          color: '#a61d15' },
+              { label: 'Piloto',                   color: '#a61d15' },
+              { label: 'Adoção / Produto',          color: '#a61d15' },
+            ] as const).map((stage, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={fadeUp}
+                className="flex items-center gap-2"
+              >
+                <div
+                  className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-[9px] font-black text-white shadow"
+                  style={{ backgroundColor: stage.color }}
+                >
+                  {i + 1}
+                </div>
+                <div
+                  className="flex-1 py-1.5 px-3 rounded-md text-xs font-bold text-white"
+                  style={{ backgroundColor: stage.color }}
+                >
+                  {stage.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Grupos BeOn Labs / IA BD */}
+          <div className="flex gap-2">
+            <div className="flex-1 bg-[#1e293b]/10 border border-[#1e293b]/20 rounded-lg py-1.5 text-center text-[9px] font-black text-[#1e293b] uppercase tracking-wide">BeOn Labs</div>
+            <div className="flex-1 bg-[#1e293b]/10 border border-[#1e293b]/20 rounded-lg py-1.5 text-center text-[9px] font-black text-[#1e293b] uppercase tracking-wide">IA BD</div>
+          </div>
+
+          {/* Cards por fase */}
+          <div className="grid grid-cols-2 gap-3">
+
+            {/* Iniciativas */}
+            <div className="col-span-2">
+              <p className="text-[9px] uppercase font-black text-[#a61d15] tracking-wider mb-1.5">Iniciativas</p>
+              <div className="grid grid-cols-2 gap-2">
+                {['Backbone', 'Instalação', 'Qualidade', 'Viabilidade'].map(item => (
+                  <div key={item} className="bg-white border border-gray-200 rounded-md shadow-sm py-2 text-center text-xs text-gray-700 font-medium">{item}</div>
+                ))}
+              </div>
+              <div className="mt-2 bg-[#1e293b] text-white rounded-md shadow-md py-3 flex flex-col items-center justify-center border-b-4 border-[#0f172a]">
+                <div className="text-xl font-black leading-none">7</div>
+                <div className="text-[10px] uppercase font-bold text-gray-300">Iniciativas</div>
+              </div>
+            </div>
+
+            {/* Refinamento */}
+            <div>
+              <p className="text-[9px] uppercase font-black text-[#b92b27] tracking-wider mb-1.5">Refinamento</p>
+              <div className="flex flex-col gap-2">
+                <div className="bg-white border border-gray-200 rounded-md shadow-sm py-2 px-1 text-center text-xs text-gray-700 font-medium">Coordenação (IAGO)</div>
+                <div className="bg-white border border-gray-200 rounded-md shadow-sm py-2 px-1 text-center text-xs text-gray-700 font-medium">Controle de Ações</div>
+              </div>
+            </div>
+
+            {/* Experimentação */}
+            <div>
+              <p className="text-[9px] uppercase font-black text-[#b92b27] tracking-wider mb-1.5">Experimentação</p>
+              <div className="relative bg-white border border-gray-200 rounded-md shadow-sm py-2 px-1 text-center text-xs text-gray-700 font-medium">
+                Recuperação (ISA)
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-teal-500 rounded-full border border-white" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* ── Diagrama Desktop (≥ md) ─────────────────────────────────────── */}
+        <div className="hidden md:block relative mt-10 pb-10">
+
           {/* Brackets Superiores */}
           <div className="absolute top-[-40px] left-0 w-full flex text-sm font-bold">
             <div className="absolute left-[30%] w-[27%] border-t border-l border-r border-[#da291c] h-4 rounded-t-sm flex justify-center items-start">
@@ -86,8 +168,8 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
           </div>
 
           {/* Chevrons */}
-          <div className="flex w-full items-stretch h-16 text-white font-bold text-[10px] md:text-xs text-center">
-            
+          <div className="flex w-full items-stretch h-16 text-white font-bold text-xs text-center">
+
             <motion.div custom={0} initial="hidden" animate="visible" variants={fadeUp} className="relative flex-1 bg-[#a61d15] flex items-center justify-center pl-4 pr-6">
               Iniciativas
               <div className="absolute -right-[15px] top-0 w-0 h-0 border-t-[32px] border-t-transparent border-b-[32px] border-b-transparent border-l-[16px] border-l-[#a61d15] z-10"></div>
@@ -131,7 +213,7 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
 
           {/* Elementos abaixo dos chevrons */}
           <div className="mt-8 flex w-full relative">
-            
+
             {/* Coluna 1: Iniciativas */}
             <div className="flex-1 flex flex-col gap-2 items-center relative">
                <div className="absolute left-[50%] top-[-32px] w-[1px] h-[32px] bg-[#da291c] z-[-1]"></div>

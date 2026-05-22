@@ -55,11 +55,11 @@ export default function Header({
   const isLite = import.meta.env.VITE_APP_EDITION === 'lite';
 
   return (
-    <header className="bg-white border-b border-gray-100 py-8 px-8 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-6">
-        
+    <header className="bg-white border-b border-gray-100 py-4 sm:py-8 px-4 sm:px-8 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-3 sm:gap-6">
+
         {/* Identidade Visual */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 min-w-0">
           {/* Botão Voltar — compacto, apenas ícone */}
           {onBackToHome && (
             <button
@@ -74,19 +74,19 @@ export default function Header({
               </svg>
             </button>
           )}
-          <div 
-            className="flex items-center gap-6 cursor-pointer group"
+          <div
+            className="flex items-center gap-3 sm:gap-6 cursor-pointer group min-w-0"
             onClick={onLogoClick}
           >
-              <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center transition-transform overflow-hidden shadow-sm border border-gray-50">
+              <div className="w-12 h-12 sm:w-20 sm:h-20 bg-white rounded-2xl flex items-center justify-center transition-transform overflow-hidden shadow-sm border border-gray-50 flex-shrink-0">
                 <img src="./claro-logo.png" alt="Claro" className="w-full h-full object-contain" />
               </div>
-              <div>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-black text-gray-900 leading-tight">Catálogo de</span>
-                  <span className="text-3xl font-black text-claro-red leading-tight">Iniciativas IA</span>
+              <div className="min-w-0">
+                <div className="flex items-baseline gap-1.5 sm:gap-2 flex-wrap">
+                  <span className="text-lg sm:text-3xl font-black text-gray-900 leading-tight whitespace-nowrap">Catálogo de</span>
+                  <span className="text-lg sm:text-3xl font-black text-claro-red leading-tight whitespace-nowrap">Iniciativas IA</span>
                 </div>
-                <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest mt-1.5">
+                <span className="block text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest mt-1 sm:mt-1.5">
                   DOT - Rede Interna e Empresarial
                 </span>
               </div>
@@ -94,7 +94,7 @@ export default function Header({
           </div>
 
         {/* Ações e Filtros */}
-        <div className="flex flex-wrap items-center justify-end gap-3">
+        <div className="flex flex-shrink-0 flex-wrap items-center justify-end gap-2 sm:gap-3">
           
           {/* Busca Expansível */}
           <div className="flex items-center">

@@ -1,8 +1,8 @@
 import { motion } from 'motion/react';
 import React from 'react';
-import { 
-  FileText, 
-  Settings, 
+import {
+  FileText,
+  Settings,
   Globe,
   Users,
   Rocket,
@@ -24,10 +24,10 @@ export default function HomePage({
 
   // Componente auxiliar para renderizar os cards
   const renderCard = (
-    title: string, 
-    description: string, 
-    sublabel: string, 
-    Icon: any, 
+    title: string,
+    description: string,
+    sublabel: string,
+    Icon: any,
     actions: React.ReactNode,
     delay: number = 0,
     isCentral: boolean = false
@@ -42,10 +42,10 @@ export default function HomePage({
         <div className="absolute inset-0 bg-white/20 animate-pulse rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
         <Icon className="w-7 h-7 relative z-10" />
       </div>
-      
+
       <h3 className="text-lg font-black text-gray-900 mb-2">{title}</h3>
       <p className="text-xs text-gray-500 leading-relaxed mb-4 flex-grow">{description}</p>
-      
+
       {sublabel && (
         <div className="text-[10px] font-bold text-claro-red uppercase tracking-wider bg-red-50 px-3 py-1 rounded-full mb-2">
           {sublabel}
@@ -99,7 +99,7 @@ export default function HomePage({
       </header>
 
       <main className="flex-grow max-w-7xl mx-auto w-full px-6 py-12 flex flex-col items-center justify-center overflow-hidden">
-        
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,13 +116,13 @@ export default function HomePage({
         </motion.div>
 
         <div className="flex flex-col lg:flex-row items-center justify-center w-full">
-          
+
           {/* Passo 1: Cadastro */}
           <a href="https://apps.powerapps.com/play/e/default-55247d4b-b435-47a5-881b-ca7627434e79/a/53cfb538-c10e-4ad9-b70a-96395f3e78af?tenantId=55247d4b-b435-47a5-881b-ca7627434e79" target="_blank" rel="noopener noreferrer" className="outline-none block">
             {renderCard(
               'Cadastro',
               'Registro padronizado do caso de uso',
-              'Regional',
+              'Área',
               FileText,
               null,
               0
@@ -135,9 +135,17 @@ export default function HomePage({
           {renderCard(
             'Refinamento',
             'Conversa técnica com a área de origem',
-            'Regional + Ponto Focal',
+            'Área + Ponto Focal',
             Settings,
-            null,
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigateToFacilitador();
+              }}
+              className="mt-2 flex items-center justify-center gap-2 text-xs font-bold bg-gray-50 text-gray-700 hover:bg-claro-red hover:text-white active:bg-red-800 border border-gray-200 hover:border-claro-red py-2.5 px-4 rounded-lg w-full transition-all group-button"
+            >
+              Ver Facilitador <ArrowRight className="w-4 h-4" />
+            </button>,
             0.1
           )}
 
@@ -171,14 +179,14 @@ export default function HomePage({
           >
             {/* Linha principal horizontal */}
             <div className="absolute left-0 top-[138px] w-6 h-1 bg-claro-red" />
-            
+
             {/* Linha vertical que divide */}
             <div className="absolute left-6 top-[38px] w-1 h-[202px] bg-claro-red" />
-            
+
             {/* Ramo Superior */}
             <div className="absolute left-6 top-[38px] w-10 h-1 bg-claro-red" />
             <div className="absolute right-0 top-[32px] w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-claro-red" />
-            
+
             {/* Ramo Inferior */}
             <div className="absolute left-6 top-[238px] w-10 h-1 bg-claro-red" />
             <div className="absolute right-0 top-[232px] w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-claro-red" />
@@ -188,14 +196,14 @@ export default function HomePage({
           <div className="flex lg:hidden flex-col items-center w-full py-4 relative">
             <div className="w-1 h-12 bg-claro-red rounded-full" />
           </div>
-          
+
           <div className="flex lg:hidden flex-col items-center">
             {horizontalArrow(0.5)}
           </div>
 
           {/* Coluna Final com 2 opções */}
           <div className="flex flex-col gap-8 lg:gap-[40px] items-center">
-            
+
             {/* Opção A: Inovação Local */}
             {renderCard(
               'Inovação Local',
@@ -213,7 +221,7 @@ export default function HomePage({
               </button>,
               0.4
             )}
-            
+
             {/* Setinha extra no mobile para a segunda opção */}
             <div className="flex lg:hidden flex-col items-center">
               {horizontalArrow(0.6)}
