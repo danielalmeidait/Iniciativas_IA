@@ -57,7 +57,7 @@ interface DetailsProps {
 export default function Details({ agent, onBack }: DetailsProps) {
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 overflow-hidden">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-8 lg:p-12 overflow-hidden">
       
       {/* Backdrop com efeito de desfoque */}
       <motion.div 
@@ -73,26 +73,26 @@ export default function Details({ agent, onBack }: DetailsProps) {
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-        className="relative bg-white rounded-[40px] shadow-2xl border border-white/20 overflow-hidden w-full max-w-5xl max-h-[90vh] overflow-y-auto no-scrollbar"
+        className="relative bg-white rounded-2xl sm:rounded-[32px] lg:rounded-[40px] shadow-2xl border border-white/20 overflow-hidden w-full max-w-5xl max-h-[90vh] overflow-y-auto no-scrollbar"
       >
         
         {/* Botão de Fechar flutuante */}
         <button 
           onClick={onBack}
-          className="absolute top-6 right-6 z-50 p-2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white rounded-full transition-all border border-white/20 group shadow-lg"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-6 lg:right-6 z-50 p-2 bg-white/10 hover:bg-white/30 backdrop-blur-md text-white rounded-full transition-all border border-white/20 group shadow-lg"
           title="Fechar (Esc)"
         >
           <X className="w-5 h-5 group-hover:rotate-90 transition-transform" />
         </button>
 
         {/* ── Cabeçalho do Modal (Branding) ── */}
-        <div className="bg-gradient-to-br from-claro-red to-claro-dark p-8 md:p-10 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-br from-claro-red to-claro-dark p-4 sm:p-6 md:p-8 lg:p-10 text-white relative overflow-hidden">
           {/* Elemento decorativo de fundo */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl pointer-events-none" />
           
           <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
             {/* Ícone/Logo do Agente */}
-            <div className="w-20 h-20 bg-white/10 backdrop-blur-xl rounded-[24px] flex items-center justify-center shrink-0 p-3 border border-white/20 shadow-inner">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-white/10 backdrop-blur-xl rounded-xl sm:rounded-2xl lg:rounded-[24px] flex items-center justify-center shrink-0 p-2 sm:p-3 border border-white/20 shadow-inner">
               <RenderIcon icon={agent.icon} className="w-full h-full text-white" />
             </div>
 
@@ -132,7 +132,7 @@ export default function Details({ agent, onBack }: DetailsProps) {
         </div>
 
         {/* ── Conteúdo do Modal ── */}
-        <div className="p-8 md:p-12 space-y-12">
+        <div className="p-4 sm:p-6 md:p-8 lg:p-12 space-y-8 sm:space-y-10 lg:space-y-12">
           
           {/* Seção 1: Missão e Descrição Longa */}
           <section>
@@ -187,7 +187,7 @@ export default function Details({ agent, onBack }: DetailsProps) {
               <div className="w-2 h-6 bg-gray-900 rounded-full" />
               Funcionalidades & Capacidades
             </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
               {agent.features.map((feat, idx) => (
                 <div key={idx} className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-t-gray-50 hover:border-t-claro-red">
                   <h3 className="font-black text-gray-900 mb-4 pb-2 border-b border-gray-50 text-[11px] uppercase tracking-widest flex items-center">
@@ -233,6 +233,34 @@ export default function Details({ agent, onBack }: DetailsProps) {
                 </div>
               ))}
             </div>
+            {(agent.productivityHighlight || agent.monthlySavingsHours) && (
+              <div className="mt-6 grid sm:grid-cols-2 gap-4">
+                {agent.productivityHighlight && (
+                  <div className="bg-green-50 border border-green-200 rounded-3xl p-6 flex items-start gap-4">
+                    <div className="w-10 h-10 bg-green-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <CheckCircle2 className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-black text-green-700 uppercase tracking-widest mb-1">Ganho de Produtividade Comprovado</div>
+                      <p className="text-sm text-green-900 font-bold leading-snug">{agent.productivityHighlight}</p>
+                    </div>
+                  </div>
+                )}
+                {agent.monthlySavingsHours && (
+                  <div className="bg-green-50 border border-green-200 rounded-3xl p-6 flex items-start gap-4">
+                    <div className="w-10 h-10 bg-green-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <CheckCircle2 className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-black text-green-700 uppercase tracking-widest mb-1">Potencial de Ganho Mensal</div>
+                      <p className="text-sm text-green-900 font-bold leading-snug">
+                        Estimativa de <span className="text-2xl font-black">{agent.monthlySavingsHours}h</span> economizadas por mês com o uso desta iniciativa.
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </section>
         </div>
       </motion.div>

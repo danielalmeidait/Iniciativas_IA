@@ -84,4 +84,12 @@ export interface AIAgent {
   dailySavingsHours?: number;
   /** Estimativa de ganho em horas por mês (dias úteis) */
   monthlySavingsHours?: number;
+  /** Destaque de ganhos de produtividade exibido no card (ex: "Redução do SLA de 4 horas para apenas 20 minutos!") */
+  productivityHighlight?: string;
+  /** Objetivos Estratégicos aos quais a iniciativa se conecta, com as justificativas */
+  strategicObjectives?: {
+    nps?: string;
+    receita?: string;
+    margem?: string;
+  };
 }

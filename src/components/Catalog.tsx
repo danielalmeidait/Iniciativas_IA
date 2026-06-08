@@ -4,8 +4,8 @@
  */
 
 import React, { useMemo, useState } from 'react';
-import { 
-  ShieldCheck, 
+import {
+  ShieldCheck,
   ChevronRight,
   ChevronDown,
   BrainCircuit,
@@ -19,7 +19,11 @@ import {
   FileText,
   Sparkles,
   LayoutGrid,
-  Search
+  Search,
+  TrendingUp,
+  Smile,
+  CircleDollarSign,
+  PieChart
 } from 'lucide-react';
 import { AIAgent } from '../types';
 import { AI_AGENTS } from '../data';
@@ -72,16 +76,16 @@ interface CatalogProps {
 
 // ─── Componente Principal ───────────────────────────────────────────────────
 
-export default function Catalog({ 
-  onSelect, 
-  search, 
+export default function Catalog({
+  onSelect,
+  search,
   domainFilters,
   departmentFilters,
   setDepartmentFilters,
   lastSelectedId,
   categoryFilter
 }: CatalogProps) {
-  
+
   // Estados para o toggle (ocultar/exibir) das seções
   const [showAgents, setShowAgents] = useState(true);
   const [showAutomations, setShowAutomations] = useState(true);
@@ -97,14 +101,14 @@ export default function Catalog({
   /** Lista filtrada de agentes baseada em busca, domínio, departamento e versão */
   const filteredAgents = useMemo(() => {
     return baseList.filter(agent => {
-      const matchesSearch = 
-        agent.name.toLowerCase().includes(search.toLowerCase()) || 
+      const matchesSearch =
+        agent.name.toLowerCase().includes(search.toLowerCase()) ||
         agent.description.toLowerCase().includes(search.toLowerCase()) ||
         agent.tagline?.toLowerCase().includes(search.toLowerCase());
-      
+
       const matchesDomain = domainFilters.length === 0 || domainFilters.includes(agent.domain);
       const matchesDept = departmentFilters.length === 0 || departmentFilters.includes(agent.department);
-      
+
       return matchesSearch && matchesDomain && matchesDept;
     });
   }, [baseList, search, domainFilters, departmentFilters]);
@@ -146,11 +150,10 @@ export default function Catalog({
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
         key={agent.id}
-        className={`group relative bg-white rounded-3xl border p-7 flex flex-col h-full shadow-sm hover:shadow-xl transition-all duration-300 ${
-          isHighlighted 
-            ? 'border-claro-red ring-1 ring-claro-red/20 shadow-lg shadow-claro-red/5' 
+        className={`group relative bg-white rounded-3xl border p-4 sm:p-5 lg:p-7 flex flex-col h-full shadow-sm hover:shadow-xl transition-all duration-300 ${isHighlighted
+            ? 'border-claro-red ring-1 ring-claro-red/20 shadow-lg shadow-claro-red/5'
             : 'border-gray-100 hover:border-claro-red/20'
-        }`}
+          }`}
       >
         {/* Selo BeOn Labs (High Potential) */}
         {agent.isHighPotential && (
@@ -164,11 +167,11 @@ export default function Catalog({
 
         {/* Cabeçalho do Card */}
         <div className="flex items-center gap-4 mb-6">
-          <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 group-hover:bg-claro-red group-hover:border-claro-red group-hover:scale-105 transition-all duration-300 p-2 shadow-sm">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gray-50 rounded-xl sm:rounded-2xl flex items-center justify-center border border-gray-100 group-hover:bg-claro-red group-hover:border-claro-red group-hover:scale-105 transition-all duration-300 p-2 shadow-sm">
             <RenderIcon icon={agent.icon} className="w-full h-full text-claro-red group-hover:text-white transition-colors" />
           </div>
           <div>
-            <h3 className="text-xl font-black text-gray-900 tracking-tight group-hover:text-claro-red transition-colors">
+            <h3 className="text-base sm:text-lg lg:text-xl font-black text-gray-900 tracking-tight group-hover:text-claro-red transition-colors">
               {agent.name}
             </h3>
             <div className="text-gray-400 text-[11px] font-bold leading-tight mt-1 uppercase tracking-wider">
@@ -178,9 +181,57 @@ export default function Catalog({
         </div>
 
         {/* Descrição Curta */}
-        <p className="text-gray-500 text-xs leading-relaxed mb-8 flex-grow line-clamp-4">
+        <p className="text-gray-500 text-xs leading-relaxed mb-4 flex-grow line-clamp-4">
           {agent.description}
         </p>
+
+
+
+
+        {/* Objetivos Estratégicos */}
+        {agent.strategicObjectives && (
+          <div className="mb-6 flex items-center justify-center gap-3 sm:gap-4">
+            {agent.strategicObjectives.nps && (
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj hover:bg-claro-red hover:border-claro-red transition-all duration-300 cursor-help shadow-sm hover:shadow-md hover:scale-105">
+                  <img src="./nps-logo.png" alt="NPS" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
+                  <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
+                    <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">70% NPS</div>
+                    <div className="text-gray-300">{agent.strategicObjectives.nps}</div>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">70 NPS</span>
+              </div>
+            )}
+            {agent.strategicObjectives.receita && (
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj hover:bg-claro-red hover:border-claro-red transition-all duration-300 cursor-help shadow-sm hover:shadow-md hover:scale-105">
+                  <img src="./receita-logo.png" alt="Receita" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
+                  <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
+                    <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">70% Receita</div>
+                    <div className="text-gray-300">{agent.strategicObjectives.receita}</div>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">70 Receita</span>
+              </div>
+            )}
+            {agent.strategicObjectives.margem && (
+              <div className="flex flex-col items-center gap-1.5">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj hover:bg-claro-red hover:border-claro-red transition-all duration-300 cursor-help shadow-sm hover:shadow-md hover:scale-105">
+                  <img src="./margem-logo.png" alt="Margem" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
+                  <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
+                    <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">50% Margem</div>
+                    <div className="text-gray-300">{agent.strategicObjectives.margem}</div>
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                  </div>
+                </div>
+                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">50 Margem</span>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Rodapé do Card (Responsabilidade e Ação) */}
         <div className="pt-6 border-t border-gray-50 mt-auto">
@@ -191,8 +242,8 @@ export default function Catalog({
             </div>
             <div className="flex items-center gap-2 text-[11px] text-gray-400">
               <Mail className="w-3 h-3" />
-              <a 
-                href={`mailto:${agent.ownerEmail}`} 
+              <a
+                href={`mailto:${agent.ownerEmail}`}
                 className="hover:text-claro-red transition-colors font-medium underline underline-offset-4 decoration-gray-100 hover:decoration-claro-red/30"
                 onClick={(e) => e.stopPropagation()}
               >
@@ -200,8 +251,8 @@ export default function Catalog({
               </a>
             </div>
           </div>
-          
-          <button 
+
+          <button
             onClick={() => onSelect(agent)}
             className="w-full py-3 bg-gray-50 text-gray-900 font-black uppercase tracking-widest text-[10px] rounded-xl flex items-center justify-center gap-2 hover:bg-claro-red hover:text-white transition-all group/btn shadow-sm active:scale-95"
           >
@@ -217,22 +268,20 @@ export default function Catalog({
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      
+
       {/* ── Seção de Estatísticas (Filtros por Área) ── */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-4 mb-10 pb-8 border-b border-gray-100">
-        
+
         {/* Card de Totalização */}
         <button
           onClick={() => toggleDept('All')}
-          className={`group flex flex-col p-4 rounded-2xl border transition-all text-left ${
-            departmentFilters.length === 0 
-              ? 'bg-gray-900 border-gray-900 shadow-lg shadow-gray-900/10' 
+          className={`group flex flex-col p-4 rounded-2xl border transition-all text-left ${departmentFilters.length === 0
+              ? 'bg-gray-900 border-gray-900 shadow-lg shadow-gray-900/10'
               : 'bg-white border-gray-100 hover:border-gray-900/30'
-          }`}
+            }`}
         >
-          <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-colors ${
-            departmentFilters.length === 0 ? 'bg-white/20 text-white' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'
-          }`}>
+          <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-colors ${departmentFilters.length === 0 ? 'bg-white/20 text-white' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'
+            }`}>
             <LayoutGrid className="w-4 h-4" />
           </div>
           <span className="text-[10px] font-black uppercase tracking-widest mb-1 text-gray-400">Total</span>
@@ -250,15 +299,13 @@ export default function Catalog({
             <button
               key={dept}
               onClick={() => toggleDept(dept)}
-              className={`group flex flex-col p-4 rounded-2xl border transition-all text-left ${
-                isActive 
-                  ? 'bg-claro-red border-claro-red shadow-lg shadow-claro-red/10' 
+              className={`group flex flex-col p-4 rounded-2xl border transition-all text-left ${isActive
+                  ? 'bg-claro-red border-claro-red shadow-lg shadow-claro-red/10'
                   : 'bg-white border-gray-100 hover:border-claro-red/30'
-              }`}
+                }`}
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-colors ${
-                isActive ? 'bg-white/20 text-white' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'
-              }`}>
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center mb-3 transition-colors ${isActive ? 'bg-white/20 text-white' : 'bg-gray-50 text-gray-400 group-hover:bg-gray-100'
+                }`}>
                 <Building2 className="w-4 h-4" />
               </div>
               <span className="text-[9px] font-black uppercase tracking-wider mb-1 text-gray-400 line-clamp-1 group-hover:text-gray-500">
@@ -281,7 +328,7 @@ export default function Catalog({
       {agents.length > 0 && (categoryFilter === 'all' || categoryFilter === 'agent') && (
         <section className="mb-16">
           <div className="flex items-center gap-4 mb-8">
-            <button 
+            <button
               onClick={() => setShowAgents(!showAgents)}
               className="group flex items-center gap-2 border-b-2 border-claro-red pb-1 focus:outline-none"
             >
@@ -292,9 +339,9 @@ export default function Catalog({
             </button>
             <div className="flex-grow border-b border-claro-red/30" />
           </div>
-          
+
           {showAgents && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               <AnimatePresence mode="popLayout">
                 {agents.map(renderAgentCard)}
               </AnimatePresence>
@@ -307,7 +354,7 @@ export default function Catalog({
       {automations.length > 0 && (categoryFilter === 'all' || categoryFilter === 'automation') && (
         <section className="mb-16">
           <div className="flex items-center gap-4 mb-8">
-            <button 
+            <button
               onClick={() => setShowAutomations(!showAutomations)}
               className="group flex items-center gap-2 border-b-2 border-claro-red pb-1 focus:outline-none"
             >
@@ -318,9 +365,9 @@ export default function Catalog({
             </button>
             <div className="flex-grow border-b border-claro-red/30" />
           </div>
-          
+
           {showAutomations && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               <AnimatePresence mode="popLayout">
                 {automations.map(renderAgentCard)}
               </AnimatePresence>
@@ -337,7 +384,7 @@ export default function Catalog({
           </div>
           <h3 className="text-2xl font-black text-gray-900 mb-2">Nenhuma iniciativa encontrada</h3>
           <p className="text-gray-500 font-medium">Tente ajustar seus filtros ou termos de busca.</p>
-          <button 
+          <button
             onClick={() => {
               // Ações para resetar filtros poderiam ser disparadas aqui
             }}

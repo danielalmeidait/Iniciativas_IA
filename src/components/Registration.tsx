@@ -182,11 +182,11 @@ export default function Registration({ onBack, onAdd }: RegistrationProps) {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.97, y: 8 }}
         transition={{ duration: 0.15, ease: [0.32, 0.72, 0, 1] }}
-        className="relative bg-white rounded-[32px] shadow-2xl border border-gray-100 w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden"
+        className="relative bg-white rounded-xl sm:rounded-2xl lg:rounded-[32px] shadow-2xl border border-gray-100 w-full max-w-5xl h-[90vh] flex flex-col overflow-hidden"
       >
 
         {/* ── Cabeçalho do modal ── */}
-        <div className="p-8 border-b border-gray-100 flex items-center justify-between shrink-0">
+        <div className="p-4 sm:p-6 lg:p-8 border-b border-gray-100 flex items-center justify-between shrink-0">
           <div>
             <h2 className="text-2xl font-black text-gray-900">Cadastrar Iniciativa</h2>
             <p className="text-gray-500 text-sm font-medium">Preencha os dados para adicionar ao catálogo.</p>
@@ -200,7 +200,7 @@ export default function Registration({ onBack, onAdd }: RegistrationProps) {
         </div>
 
         {/* ── Corpo rolável com o formulário ── */}
-        <div className="flex-grow overflow-y-auto p-8 no-scrollbar">
+        <div className="flex-grow overflow-y-auto p-4 sm:p-6 lg:p-8 no-scrollbar">
           <form id="reg-form" onSubmit={handleSubmit} className="space-y-12">
 
             {/* ── Seção 1: Informações Básicas ── */}
@@ -504,7 +504,7 @@ export default function Registration({ onBack, onAdd }: RegistrationProps) {
         </div>
 
         {/* ── Rodapé com ações do formulário ── */}
-        <div className="p-8 border-t border-gray-100 flex justify-end gap-4 shrink-0 bg-gray-50/50">
+        <div className="p-4 sm:p-6 lg:p-8 border-t border-gray-100 flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 shrink-0 bg-gray-50/50">
           <button
             type="button"
             onClick={onBack}

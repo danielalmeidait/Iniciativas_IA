@@ -91,13 +91,13 @@ export default function FacilitadorPage({ onBack }: FacilitadorPageProps) {
 
           {/* Logo ESO + Título */}
           <div className="flex items-center gap-3">
-            <img src="/ESO-logo.png" alt="ESO Logo" className="h-12 object-contain" />
+            <img src="./ESO-logo.png" alt="ESO Logo" className="h-12 object-contain" />
             <p className="text-sm font-bold text-gray-500 leading-tight">Eficiência e Suporte Operacional</p>
           </div>
 
           {/* Logo Claro - Canto Direito */}
           <div className="ml-auto hidden sm:flex items-center">
-            <img src="/claro-logo.png" alt="Claro" className="h-10 object-contain" />
+            <img src="./claro-logo.png" alt="Claro" className="h-10 object-contain" />
           </div>
         </div>
       </header>
@@ -153,9 +153,9 @@ export default function FacilitadorPage({ onBack }: FacilitadorPageProps) {
           >
             {/* Foto circular */}
             <div className="relative">
-              <div className="w-44 h-44 rounded-full overflow-hidden border-4 border-white shadow-xl bg-gray-100">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-4 border-white shadow-xl bg-gray-100">
                 <img 
-                  src="/ImageDaniel.png" 
+                  src="./ImageDaniel.png" 
                   alt="Daniel Almeida" 
                   className="w-full h-full object-cover object-center" 
                 />
@@ -220,7 +220,7 @@ function RoleCard({ role }: { role: Role }) {
   return (
     <div
       className={`
-        bg-white rounded-2xl border shadow-md p-6 max-w-[270px] w-full
+        bg-white rounded-2xl border shadow-md p-4 sm:p-5 lg:p-6 max-w-[270px] w-full
         hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300
         ${isLeft ? 'border-[#da291c]/15' : 'border-gray-100'}
       `}

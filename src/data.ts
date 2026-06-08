@@ -79,7 +79,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Documentos de Requisitos', 'Arquivos CAD', 'PDF técnico', 'Normas regulatórias', 'Escopos de projeto'],
     outputs: ['Análise crítica detalhada (qualidade/clarza/completude)', 'Arquivo corrigido para download', 'Critérios de aceite', 'Pontos de atenção técnicos'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_70b25520-6647-aeb0-a360-aedb534e2b5e&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      margem: 'Redução de retrabalho e tempo na concepção de projetos técnicos.',
+    },
   },
   {
     id: 'elisa',
@@ -134,7 +137,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Requisitos brutos', 'Regras de Negócio', 'Documentos de negócio', 'Feedbacks de usuários'],
     outputs: ['User Story estruturada', 'Regras de Negócio detalhadas', 'Sugestão Técnica (Código)', 'Critérios de Aceite (Gherkin)'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_abb80b91-c6f5-e7b3-6d69-b9a1bc35d311&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      margem: 'Redução de 50% no tempo de elaboração de requisitos, com mais foco estratégico.',
+    },
   },
   {
     id: 'facto-ia',
@@ -173,7 +179,11 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Dados do FETEC', 'Logs de equipamentos', 'Histórico de RECs'],
     outputs: ['FCA estruturado', 'Sugestão de RCA', 'Parecer de fechamento'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_36512c08-a28f-34be-f604-087a975b842f&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      nps: 'Melhoria na qualidade técnica das análises de causa.',
+      margem: 'Redução no tempo de fechamento de FECOM.',
+    },
   },
   {
     id: 'iana',
@@ -212,7 +222,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Lista de designações por e-mail', 'Base de dados de topologia'],
     outputs: ['Relatório de impacto por site', 'Risco de isolamento detalhado', 'Sugestão de e-mail para cliente'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a04ded4b-18a3-ea81-d98d-7d649ad0326c&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      nps: 'Comunicação proativa com o cliente e prevenção de impactos por manutenção programada.',
+    },
   },
   {
     id: 'siria',
@@ -252,7 +265,11 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Histórico de observações (Arquivo texto)', 'Logs do SIR'],
     outputs: ['Resumo Executivo', 'Linha do Tempo', 'Plano de Ações Preventivas', 'FCA Completo'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_22360653-26c8-57e4-88fd-e63e00f17f84&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      nps: 'Análise estruturada de incidentes melhora a confiabilidade da rede.',
+      margem: 'Base de conhecimento que previne falhas recorrentes.',
+    },
   },
   {
     id: 'check-ia',
@@ -291,7 +308,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Checklist Pré-atividade', 'Checklist Pós-atividade', 'Tabelas de Roteamento'],
     outputs: ['Relatório de divergências', 'Status de conformidade', 'Destaques de alteração'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_ee211807-6c56-7c15-c4eO-f37443fbdd34&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      nps: 'Segurança nas janelas de manutenção e garantia de que a rede retornou ao estado esperado.',
+    },
   },
   {
     id: 'confia',
@@ -330,7 +350,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Configuração Antes', 'Configuração Depois'],
     outputs: ['Relatório de diferenças (Diff)', 'Análise de impacto da mudança'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_a95041b3-4087-5b58-4d3c-9504c8547f45&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      margem: 'Redução de esforço e tempo na auditoria de configurações de roteadores.',
+    },
   },
   {
     id: 'deserth',
@@ -369,7 +392,11 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Dados de atendimentos', 'Métricas de SLA', 'Logs de produtividade'],
     outputs: ['Relatório de gargalos', 'Indicativos de falha', 'Pontos de melhoria operacional'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_f31ad6bd-b88a-875a-f928-153a54f75a4f&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      nps: 'Identificação proativa de causas de atraso nos atendimentos.',
+      margem: 'Apoio na redução de perda de SLA e risco de penalidades.',
+    },
   },
   {
     id: 'sentinela',
@@ -408,7 +435,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Gravações/Logs de chamadas', 'Tickets de escalonamento'],
     outputs: ['Nota de qualidade por atendimento', 'Relatório de inconsistências', 'Feedback para treinamento'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_415b082b-466e-f804-b4d6-914444195cf8&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      nps: 'Padronização do atendimento e melhoria direta na qualidade do serviço prestado.',
+    },
   },
   {
     id: 'bancodoc',
@@ -447,7 +477,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Planilhas de cadastro', 'Repositórios de documentos'],
     outputs: ['Relatório de pendências', 'Sugestão de correção de dados', 'Status de conformidade'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_553ea9cb-5d48-b169-3b82-ab4a655e4c59&source=embedded-builder',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      margem: 'Automação documental reduz esforço manual e tempo de regularização. Prevenção de perdas por erros de conformidade documental.',
+    },
   },
   {
     id: 'automaton',
@@ -486,7 +519,12 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Base de dados de produção', 'Calendário de produção'],
     outputs: ['Base filtrada por valores específicos', 'Alertas de vencimento', 'Plano de produção diário'],
     accessUrl: 'https://m365.cloud.microsoft/chat/entity1-d870f6cd-4aa5-4d42-9626-b690c041429/eyJpZCI6ImNiOTA3ZjU2LWYzMmEtNGU5YS04OTkzLWVjMWJjNGJhNTI1NiIsInNjZW5hcmlvIjoibGF1bmNoY29waWxvdGV4dGVuc2lvbiIsInByb3BlcnRpZXMiOnsiY2xpY2tUaW1lc3RhbXAiOiJXZWQgSmFuIDI4IDIwMjYifSwidmVyc2lvbiI6MSwic291cmNlIjoib25BcHBJbnN0YWxsYXRpb24iLCJjb3JyZWxhdGlvbklkIjoiZmRjMjg3Y2UtMmJhNC00MDk0LTk4NjktODRkZThhMGRmZDNmIiwiaXNVcGdyYWRlIjpmYWxzZX0=',
-    category: 'agent'
+    category: 'agent',
+    monthlySavingsHours: 35,
+    strategicObjectives: {
+      nps: 'Cumprimento de prazos estipulados melhora a percepção do cliente.',
+      margem: 'Redução do risco de perda de prazos, prevenindo penalidades financeiras.',
+    },
   },
   {
     id: 'bia',
@@ -525,7 +563,10 @@ export const AI_AGENTS: AIAgent[] = [
     inputs: ['Planilha de backlog Excel', 'Dados de previsão de entrega'],
     outputs: ['Relatórios de status diário', 'Gráficos de evolução', 'Alertas de ativação crítica'],
     accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_ce7a4b2b-53a4-c0f5-18bd-b796a036294f',
-    category: 'agent'
+    category: 'agent',
+    strategicObjectives: {
+      margem: 'Foco nos links com maior risco de atraso, garantindo faturamento no prazo e evitando multas.',
+    },
   },
   {
     id: 'guara',
@@ -560,10 +601,15 @@ export const AI_AGENTS: AIAgent[] = [
         ]
       }
     ],
-    icon: 'ShieldCheck',
+    icon: 'guara-logo.png',
     inputs: ['Propostas de Projeto', 'Evidências Técnicas', 'Matriz de Riscos'],
     outputs: ['Relatório Final Padronizado', 'Parecer Técnico/Executivo'],
-    category: 'agent'
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_4e0b2b1e-5e6e-04b6-4b65-5a41f5c68037&source=embedded-builder',
+    category: 'agent',
+    productivityHighlight: 'Redução do SLA de 4 horas para apenas 20 minutos! (91,7% de ganho)',
+    strategicObjectives: {
+      margem: 'Otimização expressiva do tempo de análise de viabilidade de projetos, poupando horas de engenharia.',
+    },
   },
   {
     id: 'cpe-auto',
@@ -601,7 +647,11 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Router',
     inputs: ['Dados do Equipamento', 'Status de LEDs', 'Configurações de Rede'],
     outputs: ['Configuração Aplicada', 'Status de Validação'],
-    category: 'automation'
+    category: 'automation',
+    strategicObjectives: {
+      nps: 'Menor tempo de visita técnica e agilidade na entrega do serviço.',
+      margem: 'Maior autonomia técnica e redução de erros.',
+    },
   },
   {
     id: 'fabia',
@@ -636,11 +686,15 @@ export const AI_AGENTS: AIAgent[] = [
         ]
       }
     ],
-    icon: 'BarChart4',
+    icon: 'fabia-logo.png',
     inputs: ['Planilhas de Projetos', 'Status de Rollout'],
     outputs: ['Resumo Executivo', 'Análise de Risco'],
     accessUrl: 'https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_0ef6e3cb-1cf0-4593-b990-049cd544336e',
-    category: 'agent'
+    category: 'agent',
+    monthlySavingsHours: 30,
+    strategicObjectives: {
+      margem: 'Agilidade na tomada de decisão gerencial com consolidação de status de portfolio.',
+    },
   },
   {
     id: 'leia',
@@ -654,36 +708,43 @@ export const AI_AGENTS: AIAgent[] = [
     tagline: 'Assistente de Editais',
     description: 'Assistente analítica de editais complexos e propostas comerciais.',
     mission: 'Garantir viabilidade técnica e mitigar riscos financeiros em contratações.',
-    longDescription: 'É uma agente de IA que realiza leitura profunda de editais técnicos para extrair requisitos de SLA e regras de faturamento para o setor de Governo.',
+    longDescription: 'A LEIA é uma agente de IA que realiza leitura profunda e análise contextual de editais técnicos, pregões e documentos licitatórios, extraindo informações críticas para apoiar a tomada de decisão nas áreas comercial, pré-vendas e pós-vendas. Seu papel é consolidar, de forma clara e estruturada, os principais pontos do edital, incluindo viabilidade, requisitos, SLAs, regras de faturamento, glossas, penalidades e obrigações contratuais, reduzindo esforço manual e aumentando a segurança da análise.',
     features: [
       {
-        category: 'Análise Documental',
+        category: 'Funcionalidades & Capacidades',
         items: [
+          'Consolidação de prazos críticos',
+          'Resumo de métricas relevantes para decisão comercial',
           'Resumo analítico de editais',
-          'Extração de métricas de SLA',
           'Mapeamento de exigências técnicas'
         ]
       }
     ],
     benefits: [
       {
-        role: 'Comercial',
+        role: 'Benefícios e Impacto',
         items: [
-          'Decisão baseada em dados reais do edital',
-          'Redução de riscos financeiros',
-          'Agilidade na resposta a editais'
+          'Apoio à decisão com base em dados reais do edital',
+          'Redução significativa do tempo de leitura e interpretação de editais',
+          'Redução de riscos financeiros e contratuais',
+          'Mais agilidade na resposta a editais e licitações'
         ]
       }
     ],
-    icon: 'FileText',
-    inputs: ['Editais em PDF', 'Cadernos Técnicos'],
-    outputs: ['Parecer de Viabilidade', 'Resumo de Métricas'],
+    icon: 'leia-logo.png',
+    inputs: ['Editais em PDF', 'Cadernos Técnicos', 'Pregões e documentos licitatórios'],
+    outputs: ['Parecer de viabilidade', 'Relatório com SLAs e glossas', 'Mapeamento de requisitos e obrigações', 'Relatório de apoio ao Pós-Venda'],
     accessUrl: 'https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_8d3f553d-d8f0-e60c-cfaa-8f6aedcf510c',
-    category: 'agent'
+    category: 'agent',
+    monthlySavingsHours: 170,
+    productivityHighlight: 'Redução do tempo de leitura de edital de 1 dia para cerca de 1 hora. (87,5% de ganho)',
+    strategicObjectives: {
+      margem: 'Aceleração nas respostas a licitações e redução de esforço da equipe.',
+    },
   },
   {
     id: 'cme',
-    name: 'CME',
+    name: 'EVENTOS MASSIVOS',
     department: 'MSO Instalação',
     domain: 'Gestão de Incidentes e Problemas',
     execution: 'Gestão & Qualidade Operacional',
@@ -717,11 +778,15 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Activity',
     inputs: ['Logs de Alarmes', 'Topologia de Rede'],
     outputs: ['Mapa de Impacto', 'Causa Raiz Sugerida'],
-    category: 'automation'
+    category: 'automation',
+    monthlySavingsHours: 105,
+    strategicObjectives: {
+      nps: 'Redução do tempo de diagnóstico de falhas massivas, diminuindo o impacto ao cliente.',
+    },
   },
   {
     id: 'drrf',
-    name: 'DRRF',
+    name: 'ROTAS FOTÔNICAS',
     department: 'MSO Instalação',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
@@ -755,11 +820,15 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Activity',
     inputs: ['Dados de OTDR', 'Inventário de Fibras'],
     outputs: ['Relatório de Disponibilidade', 'Mapa de Riscos'],
-    category: 'automation'
+    category: 'automation',
+    monthlySavingsHours: 105,
+    strategicObjectives: {
+      nps: 'Prevenção de isolamento de clientes e incremento na confiabilidade do backbone.',
+    },
   },
   {
     id: 'rtv-digital',
-    name: 'RTV DIGITAL',
+    name: 'RVT DIGITAL',
     department: 'MSO Instalação',
     domain: 'Relatórios e Validação',
     execution: 'Gestão & Qualidade Operacional',
@@ -768,36 +837,42 @@ export const AI_AGENTS: AIAgent[] = [
     type: 'Anthropic - Claude',
     tagline: 'Download e arquivamento de RVT Digital',
     description: 'Automatização da gestão documental de vistorias técnicas.',
-    mission: 'Automatizar a gestão documental de vistorias técnicas.',
-    longDescription: 'O RTV DIGITAL é uma automação que utiliza IA para realizar o processamento de vistorias técnicas (RVT), organizando o download e arquivamento seguro dos arquivos para consulta das equipes de instalação.',
+    mission: 'Automatizar o processamento, a organização e o arquivamento de relatórios digitais de visita, promovendo mais segurança da informação, rastreabilidade, produtividade e eliminação do uso excessivo de papel.',
+    longDescription: 'O RTV DIGITAL é um agente de Inteligência Artificial voltado à digitalização e automação do processo de arquivamento de relatórios de visita técnicas do TOA/OFS, substituindo atividades manuais por um fluxo automatizado, ágil e confiável.',
     features: [
       {
-        category: 'Automação',
+        category: 'Funcionalidades & Capacidades',
         items: [
-          'Download em lote de documentos',
-          'Indexação automática por projeto',
-          'Backup em nuvem estruturado'
+          'Automatização do arquivamento de relatórios TOA/OFS',
+          'Captura de relatórios digitais sem necessidade de intervenção manual',
+          'Upload direto para diretórios estruturados no SharePoint',
+          'Padronização da organização documental'
         ]
       }
     ],
     benefits: [
       {
-        role: 'Administrativo',
+        role: 'Benefícios e Impacto',
         items: [
-          'Eliminação de tarefas manuais de download',
-          'Fácil localização de evidências de vistoria',
-          'Organização padronizada do histórico'
+          'Redução do risco de perda de dados',
+          'Eliminação de atividades manuais repetitivas',
+          'Redução do uso de papel e dos custos associados ao processo físico',
+          'Geração de economia anual estimada em aproximadamente R$ 70 mil nas regionais'
         ]
       }
     ],
     icon: 'FileText',
-    inputs: ['Links de Vistoria', 'Metadados de Projetos'],
-    outputs: ['Repositório Organizado', 'Log de Arquivamento'],
-    category: 'automation'
+    inputs: ['Captura de dados de chamados com relatórios de visita TOA'],
+    outputs: ['Download automático dos relatórios para o SharePoint', 'Disponibilização dos arquivos em ambiente digital centralizado'],
+    category: 'automation',
+    monthlySavingsHours: 105,
+    strategicObjectives: {
+      margem: 'Economia anual estimada em custos operacionais e eliminação de processos manuais.',
+    },
   },
   {
     id: 'irtoa',
-    name: 'IRTOA',
+    name: 'INTEGRAÇÃO RECONLINE',
     department: 'MSO Instalação',
     domain: 'Automação Processual',
     execution: 'Gestão & Qualidade Operacional',
@@ -831,11 +906,16 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Activity',
     inputs: ['Dados do REConline', 'Status do TOA'],
     outputs: ['Base Sincronizada', 'Alertas de Divergência'],
-    category: 'automation'
+    category: 'automation',
+    monthlySavingsHours: 114,
+    strategicObjectives: {
+      nps: 'Melhor cumprimento de janelas de atendimento agendadas.',
+      margem: 'Diminuição do retrabalho com preenchimento manual.',
+    },
   },
   {
     id: 'istoa',
-    name: 'ISTOA',
+    name: 'INTEGRAÇÃO SIEBEL',
     department: 'MSO Instalação',
     domain: 'Automação Processual',
     execution: 'Gestão & Qualidade Operacional',
@@ -869,11 +949,15 @@ export const AI_AGENTS: AIAgent[] = [
     icon: 'Activity',
     inputs: ['Tickets Siebel', 'Agendas TOA'],
     outputs: ['OS Despachada', 'Confirmação de Execução'],
-    category: 'automation'
+    category: 'automation',
+    monthlySavingsHours: 54,
+    strategicObjectives: {
+      nps: 'Eliminação do atraso entre a abertura do chamado e o despacho do técnico.',
+    },
   },
   {
     id: 'painel-fila',
-    name: 'PAINELDEFILA',
+    name: 'PAINEL DE FILA',
     department: 'MSO Instalação',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
@@ -890,7 +974,7 @@ export const AI_AGENTS: AIAgent[] = [
         items: [
           'Placar em tempo real de chamados',
           'Priorização automática por SLA',
-          'Visão por clusters geográficos'
+          'Visão por regional'
         ]
       }
     ],
@@ -900,14 +984,20 @@ export const AI_AGENTS: AIAgent[] = [
         items: [
           'Equilíbrio na carga dos técnicos',
           'Redução do tempo de espera do cliente',
-          'Visibilidade de gargalos na operação'
+          'Visibilidade de gargalos na operação',
+          'Monitoramento efetivo das filas de atendimento através do TOA',
+          'Cobrar regional da ausência do técnico e monitoramento do técnico de campo'
         ]
       }
     ],
     icon: 'BarChart4',
     inputs: ['Base de Chamados', 'Posicionamento de Técnicos'],
     outputs: ['Placar de Gestão', 'Sugestão de Despacho'],
-    category: 'automation'
+    category: 'automation',
+    monthlySavingsHours: 114,
+    strategicObjectives: {
+      nps: 'Redução do tempo de espera do cliente final e maior controle da operação.',
+    },
   },
   {
     id: 'isa',
@@ -915,8 +1005,8 @@ export const AI_AGENTS: AIAgent[] = [
     department: 'Recuperação',
     domain: 'Análise e Gestão',
     execution: 'Gestão & Qualidade Operacional',
-    owner: 'Equipe de Imersão/Recuperação',
-    ownerEmail: 'suporte.eso@claro.com.br',
+    owner: 'Victor Matheus Falcao Fonseca',
+    ownerEmail: 'victor.matheus@claro.com.br',
     type: 'Python + Google Gemini',
     tagline: 'Inteligência em Suporte e Avaliação',
     description: 'Agente focado em melhorar a recuperação de clientes e fluxo operacional.',
@@ -942,9 +1032,56 @@ export const AI_AGENTS: AIAgent[] = [
         ]
       }
     ],
-    icon: 'Activity',
+    icon: 'logo-isa.png',
     inputs: ['Base de dados de recuperação', 'Histórico de atendimento', 'Relatórios financeiros'],
     outputs: ['Trilha de ação de recuperação', 'Insights comportamentais'],
-    category: 'automation'
+    category: 'automation',
+    productivityHighlight: 'Redução de 65 minutos para apenas 9 minutos! (86,2% de ganho)',
+    strategicObjectives: {
+      margem: 'A recuperação mais rápida traz ganho de tempo e otimização do fluxo operacional.',
+    },
+  },
+  {
+    id: 'hannah',
+    name: 'HANNAH',
+    department: 'GCC - LESULCONNE',
+    domain: 'Conhecimento e Documentação',
+    execution: 'Gestão & Qualidade Operacional',
+    owner: 'Zalboeno Lins Ferreira',
+    ownerEmail: 'zalboeno.ferreira@claro.com.br',
+    type: 'Microsoft - Copilot',
+    tagline: 'ASSISTENTE DIGITAL',
+    description: 'Apoia na elaboração e revisão de e-mails, textos corporativos e organização de informações.',
+    mission: 'Aumentar a produtividade e clareza na comunicação, construindo textos claros e profissionais.',
+    longDescription: 'Hannah é uma agente de IA que recebeu esse nome em homenagem à pensadora Hannah Arendt. Ela atua apoiando os usuários na elaboração e revisão de e-mails, criação de textos corporativos, organização de informações e auxílio em análises textuais, adaptando o tom e conteúdo para formal ou casual e promovendo eficiência na comunicação.',
+    features: [
+      {
+        category: 'Comunicação',
+        items: [
+          'Elaboração e revisão de e-mails',
+          'Criação de textos corporativos',
+          'Organização de informações',
+          'Auxílio em análises textuais'
+        ]
+      }
+    ],
+    benefits: [
+      {
+        role: 'Usuário',
+        items: [
+          'Ganho de tempo na comunicação corporativa',
+          'Assertividade na escrita',
+          'Adaptação do tom ao contexto (formal ou casual)'
+        ]
+      }
+    ],
+    icon: 'FileText',
+    inputs: ['Textos'],
+    outputs: ['E-mails bem redigidos de acordo com o público-alvo'],
+    accessUrl: 'https://m365.cloud.microsoft/chat/?titleId=T_73efaa04-a4c6-6db2-86ef-488ca0209e00&source=embedded-builder',
+    category: 'agent',
+    strategicObjectives: {
+      margem: 'Ganho expressivo de tempo na formulação de comunicações corporativas rotineiras.',
+    },
   }
 ];
