@@ -31,8 +31,8 @@ const roles = [
     position: 'left' as const,
     icon: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-        <rect x="3" y="6" width="26" height="20" rx="3" stroke="currentColor" strokeWidth="2" fill="none"/>
-        <path d="M9 12h14M9 17h10M9 22h7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="3" y="6" width="26" height="20" rx="3" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M9 12h14M9 17h10M9 22h7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -44,8 +44,8 @@ const roles = [
     position: 'top-right' as const,
     icon: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-        <path d="M16 4l12 5v8c0 6-5 10.5-12 13C9 27.5 4 23 4 17V9l12-5z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinejoin="round"/>
-        <path d="M11 16l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M16 4l12 5v8c0 6-5 10.5-12 13C9 27.5 4 23 4 17V9l12-5z" stroke="currentColor" strokeWidth="2" fill="none" strokeLinejoin="round" />
+        <path d="M11 16l3 3 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -57,10 +57,10 @@ const roles = [
     position: 'bottom-right' as const,
     icon: (
       <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-6 h-6">
-        <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-        <path d="M10 20l4-4 3 3 5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M4 24h24" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M16 24v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+        <rect x="4" y="8" width="24" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M10 20l4-4 3 3 5-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4 24h24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M16 24v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       </svg>
     ),
   },
@@ -85,7 +85,7 @@ export default function FacilitadorPage({ onBack }: FacilitadorPageProps) {
             aria-label="Voltar"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
@@ -154,10 +154,10 @@ export default function FacilitadorPage({ onBack }: FacilitadorPageProps) {
             {/* Foto circular */}
             <div className="relative">
               <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-44 lg:h-44 rounded-full overflow-hidden border-4 border-white shadow-xl bg-gray-100">
-                <img 
-                  src="./ImageDaniel.png" 
-                  alt="Daniel Almeida" 
-                  className="w-full h-full object-cover object-center" 
+                <img
+                  src="./ImageDaniel.png"
+                  alt="Daniel Almeida"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
               {/* Anel decorativo */}
@@ -194,7 +194,7 @@ export default function FacilitadorPage({ onBack }: FacilitadorPageProps) {
       {/* ── Rodapé ────────────────────────────────────────────────────────── */}
       <footer className="mt-auto bg-white border-t border-gray-100 py-8 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
-          <p className="text-xs font-bold text-gray-900">© 2026 Eficiência e Suporte Operacional</p>
+          <p className="text-xs font-bold text-gray-900">© 2026 | ESO - Eficiência e Suporte Operacional</p>
         </div>
       </footer>
     </div>
@@ -262,25 +262,25 @@ function ArrowsOverlay() {
       {/* Seta ← → (esquerda, bidirrecional) */}
       <div className="absolute left-[calc(50%-150px)] top-1/2 -translate-y-1/2 flex items-center justify-center">
         <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
-          <path d="M8 12H40" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round"/>
-          <path d="M8 12L16 6M8 12L16 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M40 12L32 6M40 12L32 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M8 12H40" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M8 12L16 6M8 12L16 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M40 12L32 6M40 12L32 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
 
       {/* Seta → direita topo */}
       <div className="absolute right-[calc(50%-150px)] top-[30%] -translate-y-1/2 rotate-[-25deg] flex items-center justify-center">
         <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
-          <path d="M8 12H40" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round"/>
-          <path d="M40 12L32 6M40 12L32 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M8 12H40" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M40 12L32 6M40 12L32 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
 
       {/* Seta → direita fundo */}
       <div className="absolute right-[calc(50%-150px)] bottom-[30%] translate-y-1/2 rotate-[25deg] flex items-center justify-center">
         <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
-          <path d="M8 12H40" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round"/>
-          <path d="M40 12L32 6M40 12L32 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M8 12H40" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M40 12L32 6M40 12L32 18" stroke="#9CA3AF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>

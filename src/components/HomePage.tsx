@@ -250,7 +250,7 @@ export default function HomePage({
 
       <footer className="mt-auto bg-white border-t border-gray-100 py-6 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
-          <p className="text-xs font-bold text-gray-900">© 2026 Eficiência e Suporte Operacional</p>
+          <p className="text-xs font-bold text-gray-900">© 2026 | ESO - Eficiência e Suporte Operacional</p>
         </div>
       </footer>
     </div>

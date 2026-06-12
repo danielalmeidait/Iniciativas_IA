@@ -21,6 +21,8 @@ import {
   LayoutGrid,
   Search,
   TrendingUp,
+  Clock,
+  Users,
   Smile,
   CircleDollarSign,
   PieChart
@@ -189,49 +191,52 @@ export default function Catalog({
 
 
         {/* Objetivos Estratégicos */}
-        {agent.strategicObjectives && (
-          <div className="mb-6 flex items-center justify-center gap-3 sm:gap-4">
-            {agent.strategicObjectives.nps && (
-              <div className="flex flex-col items-center gap-1.5">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj hover:bg-claro-red hover:border-claro-red transition-all duration-300 cursor-help shadow-sm hover:shadow-md hover:scale-105">
-                  <img src="./nps-logo.png" alt="NPS" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
-                  <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
-                    <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">70% NPS</div>
-                    <div className="text-gray-300">{agent.strategicObjectives.nps}</div>
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
-                  </div>
+        <div className="mb-6 flex items-center justify-center gap-3 sm:gap-4">
+          {/* NPS */}
+          <div className="flex flex-col items-center gap-1.5">
+            <div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj transition-all duration-300 ${agent.strategicObjectives?.nps ? 'hover:bg-claro-red hover:border-claro-red cursor-help shadow-sm hover:shadow-md hover:scale-105' : 'opacity-30 grayscale pointer-events-none'}`}>
+              <img src="./nps-logo.png" alt="NPS" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
+              {agent.strategicObjectives?.nps && (
+                <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
+                  <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">70% NPS</div>
+                  <div className="text-gray-300">{agent.strategicObjectives.nps}</div>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
                 </div>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">70 NPS</span>
-              </div>
-            )}
-            {agent.strategicObjectives.receita && (
-              <div className="flex flex-col items-center gap-1.5">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj hover:bg-claro-red hover:border-claro-red transition-all duration-300 cursor-help shadow-sm hover:shadow-md hover:scale-105">
-                  <img src="./receita-logo.png" alt="Receita" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
-                  <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
-                    <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">70% Receita</div>
-                    <div className="text-gray-300">{agent.strategicObjectives.receita}</div>
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
-                  </div>
-                </div>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">70 Receita</span>
-              </div>
-            )}
-            {agent.strategicObjectives.margem && (
-              <div className="flex flex-col items-center gap-1.5">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj hover:bg-claro-red hover:border-claro-red transition-all duration-300 cursor-help shadow-sm hover:shadow-md hover:scale-105">
-                  <img src="./margem-logo.png" alt="Margem" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
-                  <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
-                    <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">50% Margem</div>
-                    <div className="text-gray-300">{agent.strategicObjectives.margem}</div>
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
-                  </div>
-                </div>
-                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">50 Margem</span>
-              </div>
-            )}
+              )}
+            </div>
+            <span className={`text-[10px] font-bold uppercase tracking-wider ${agent.strategicObjectives?.nps ? 'text-gray-500' : 'text-gray-300'}`}>70 NPS</span>
           </div>
-        )}
+          
+          {/* Receita */}
+          <div className="flex flex-col items-center gap-1.5">
+            <div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj transition-all duration-300 ${agent.strategicObjectives?.receita ? 'hover:bg-claro-red hover:border-claro-red cursor-help shadow-sm hover:shadow-md hover:scale-105' : 'opacity-30 grayscale pointer-events-none'}`}>
+              <img src="./receita-logo.png" alt="Receita" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
+              {agent.strategicObjectives?.receita && (
+                <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
+                  <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">70% Receita</div>
+                  <div className="text-gray-300">{agent.strategicObjectives.receita}</div>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                </div>
+              )}
+            </div>
+            <span className={`text-[10px] font-bold uppercase tracking-wider ${agent.strategicObjectives?.receita ? 'text-gray-500' : 'text-gray-300'}`}>70 Receita</span>
+          </div>
+
+          {/* Margem */}
+          <div className="flex flex-col items-center gap-1.5">
+            <div className={`w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 border border-gray-100 rounded-2xl flex items-center justify-center relative group/obj transition-all duration-300 ${agent.strategicObjectives?.margem ? 'hover:bg-claro-red hover:border-claro-red cursor-help shadow-sm hover:shadow-md hover:scale-105' : 'opacity-30 grayscale pointer-events-none'}`}>
+              <img src="./margem-logo.png" alt="Margem" className="w-8 h-8 sm:w-9 sm:h-9 object-contain transition-all" />
+              {agent.strategicObjectives?.margem && (
+                <div className="absolute bottom-full mb-3 hidden group-hover/obj:block w-56 bg-gray-900 text-white text-[11px] p-3 rounded-xl shadow-xl z-50 text-center pointer-events-none transform -translate-x-1/2 left-1/2 font-medium leading-relaxed">
+                  <div className="font-black text-white mb-1.5 uppercase tracking-widest text-[10px]">50% Margem</div>
+                  <div className="text-gray-300">{agent.strategicObjectives.margem}</div>
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-900"></div>
+                </div>
+              )}
+            </div>
+            <span className={`text-[10px] font-bold uppercase tracking-wider ${agent.strategicObjectives?.margem ? 'text-gray-500' : 'text-gray-300'}`}>50 Margem</span>
+          </div>
+        </div>
 
         {/* Rodapé do Card (Responsabilidade e Ação) */}
         <div className="pt-6 border-t border-gray-50 mt-auto">
@@ -323,6 +328,106 @@ export default function Catalog({
           );
         })}
       </div>
+
+      {/* ── Painel de Ganhos Consolidados ── */}
+      {(() => {
+        // Aplica o mesmo filtro de categoria que controla as seções de agentes e automações
+        const filteredByCategory = categoryFilter === 'all'
+          ? filteredAgents
+          : filteredAgents.filter(a => a.category === categoryFilter);
+
+        const itemsComGanho = filteredByCategory.filter(a => (a.monthlySavingsHours ?? 0) > 0);
+        const totalHoras = itemsComGanho.reduce((acc, a) => acc + (a.monthlySavingsHours ?? 0), 0);
+        const totalFTE = totalHoras / 176;
+        const ranking = [...itemsComGanho].sort((a, b) => (b.monthlySavingsHours ?? 0) - (a.monthlySavingsHours ?? 0));
+        const maxHoras = ranking[0]?.monthlySavingsHours ?? 1;
+
+        // Label do painel muda conforme o filtro ativo
+        const panelLabel = categoryFilter === 'agent'
+          ? 'Ganhos com Agentes Copilot'
+          : categoryFilter === 'automation'
+          ? 'Ganhos com Automações de IA'
+          : 'Ganhos com Agentes de IA + Copilot';
+
+        if (itemsComGanho.length === 0) return null;
+
+        return (
+          <section className="mb-10 bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden">
+            {/* Header do painel */}
+            <div className="px-6 pt-5 pb-4 border-b border-gray-100">
+              <h2 className="text-base font-black text-gray-900 tracking-tight">{panelLabel}</h2>
+              <p className="text-gray-400 text-[11px] font-medium mt-0.5">Visão consolidada dos ganhos de produtividade por solução de IA e total capturado pelas áreas</p>
+            </div>
+
+            <div className="flex">
+              {/* ── Card esquerdo: Ganho Total ── */}
+              <div className="w-56 flex-shrink-0 flex flex-col items-center justify-center py-6 px-4 bg-gray-50 border-r border-gray-100">
+                <div className="w-11 h-11 bg-emerald-50 border border-emerald-100 rounded-2xl flex items-center justify-center mb-3">
+                  <Clock className="w-5 h-5 text-emerald-500" />
+                </div>
+                <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 text-center leading-tight mb-2">Ganho total<br/>consolidado</span>
+                <div className="flex items-baseline gap-1 whitespace-nowrap">
+                  <span className="text-[2.25rem] leading-none font-black text-emerald-500">{totalHoras}</span>
+                  <span className="text-xs font-bold text-gray-400">h/mês</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 rounded-lg border border-emerald-100 mt-3">
+                  <Users className="w-3 h-3 text-emerald-500" />
+                  <span className="text-[11px] font-black text-emerald-600">{totalFTE.toFixed(1)} FTE</span>
+                </div>
+              </div>
+
+              {/* ── Tabela de ranking ── */}
+              <div className="flex-1 min-w-0 overflow-hidden flex flex-col">
+                {/* Linha de sub-título da tabela */}
+                <div className="flex items-center justify-between px-5 py-2.5 border-b border-gray-100">
+                  <span className="text-[10px] font-black text-gray-600 uppercase tracking-widest">Ganho por IA / Agente</span>
+                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Ranking por horas e FTE</span>
+                </div>
+
+                {/* Tabela com alinhamento nativo */}
+                <div className="overflow-y-auto max-h-52">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-gray-50/70 border-b border-gray-100">
+                        <th className="px-5 py-2 text-[9px] font-black uppercase tracking-widest text-gray-400 w-[40%]">IA / Agente</th>
+                        <th className="px-3 py-2 text-[9px] font-black uppercase tracking-widest text-gray-400 w-[28%]">Área</th>
+                        <th className="px-3 py-2 text-[9px] font-black uppercase tracking-widest text-gray-400 text-right w-[18%]">Horas Ganhas</th>
+                        <th className="px-5 py-2 text-[9px] font-black uppercase tracking-widest text-gray-400 text-right w-[14%]">FTE</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-50">
+                      {ranking.map((agent) => {
+                        const horas = agent.monthlySavingsHours ?? 0;
+                        const fte = horas / 176;
+                        const barWidth = Math.round((horas / maxHoras) * 100);
+                        return (
+                          <tr key={agent.id} className="hover:bg-gray-50/60 transition-colors">
+                            <td className="px-5 py-3">
+                              <div className="text-[11px] font-black text-gray-900 uppercase tracking-wide">{agent.name}</div>
+                              <div className="text-[9px] text-gray-400 font-semibold mt-0.5 uppercase">{agent.type}</div>
+                              <div className="mt-1.5 h-[3px] bg-gray-100 rounded-full w-24">
+                                <div
+                                  className="h-[3px] bg-emerald-400 rounded-full"
+                                  style={{ width: `${barWidth}%` }}
+                                />
+                              </div>
+                            </td>
+                            <td className="px-3 py-3 text-[11px] text-gray-500 font-medium">{agent.department}</td>
+                            <td className="px-3 py-3 text-[12px] font-black text-gray-700 text-right whitespace-nowrap">{horas} h/mês</td>
+                            <td className="px-5 py-3 text-right">
+                              <span className="inline-block bg-emerald-100 text-emerald-700 text-[10px] font-black px-2 py-0.5 rounded-md whitespace-nowrap">{fte.toFixed(1)} FTE</span>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* ── Seção: Agentes de IA ── */}
       {agents.length > 0 && (categoryFilter === 'all' || categoryFilter === 'agent') && (

@@ -32,7 +32,7 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
             aria-label="Voltar"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
 
@@ -74,13 +74,13 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
           {/* Etapas como stepper vertical */}
           <div className="flex flex-col gap-1.5">
             {([
-              { label: 'Iniciativas',              color: '#a61d15' },
+              { label: 'Iniciativas', color: '#a61d15' },
               { label: 'Apresentação da Iniciativa', color: '#b92b27' },
-              { label: 'Refinamento',              color: '#b92b27' },
-              { label: 'Experimentação',            color: '#b92b27' },
-              { label: 'Comitê Executivo',          color: '#a61d15' },
-              { label: 'Piloto',                   color: '#a61d15' },
-              { label: 'Adoção / Produto',          color: '#a61d15' },
+              { label: 'Refinamento', color: '#b92b27' },
+              { label: 'Experimentação', color: '#b92b27' },
+              { label: 'Comitê Executivo', color: '#a61d15' },
+              { label: 'Piloto', color: '#a61d15' },
+              { label: 'Adoção / Produto', color: '#a61d15' },
             ] as const).map((stage, i) => (
               <motion.div
                 key={i}
@@ -177,7 +177,7 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
 
             <motion.div custom={1} initial="hidden" animate="visible" variants={fadeUp} className="relative flex-1 bg-[#b92b27] flex items-center justify-center pl-8 pr-6 ml-1">
               <div className="absolute -left-[1px] top-0 w-0 h-0 border-t-[32px] border-t-transparent border-b-[32px] border-b-transparent border-l-[16px] border-l-gray-50 z-0"></div>
-              Apresentação da<br/>Iniciativa
+              Apresentação da<br />Iniciativa
               <div className="absolute -right-[15px] top-0 w-0 h-0 border-t-[32px] border-t-transparent border-b-[32px] border-b-transparent border-l-[16px] border-l-[#b92b27] z-10"></div>
             </motion.div>
 
@@ -216,49 +216,49 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
 
             {/* Coluna 1: Iniciativas */}
             <div className="flex-1 flex flex-col gap-2 items-center relative">
-               <div className="absolute left-[50%] top-[-32px] w-[1px] h-[32px] bg-[#da291c] z-[-1]"></div>
-               <motion.div custom={7} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Backbone</motion.div>
-               <motion.div custom={8} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Instalação</motion.div>
-               <motion.div custom={9} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Qualidade</motion.div>
-               <motion.div custom={10} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Viabilidade</motion.div>
-               <motion.div custom={11} initial="hidden" animate="visible" variants={fadeUp} className="mt-2 w-3/4 bg-[#1e293b] text-white rounded-md shadow-md py-3 min-h-[48px] flex flex-col items-center justify-center text-center border-b-4 border-[#0f172a]">
-                 <div className="text-xl font-black leading-none">7</div>
-                 <div className="text-[10px] uppercase font-bold text-gray-300">Iniciativas</div>
-               </motion.div>
+              <div className="absolute left-[50%] top-[-32px] w-[1px] h-[32px] bg-[#da291c] z-[-1]"></div>
+              <motion.div custom={7} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Backbone</motion.div>
+              <motion.div custom={8} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Instalação</motion.div>
+              <motion.div custom={9} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Qualidade</motion.div>
+              <motion.div custom={10} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Viabilidade</motion.div>
+              <motion.div custom={11} initial="hidden" animate="visible" variants={fadeUp} className="mt-2 w-3/4 bg-[#1e293b] text-white rounded-md shadow-md py-3 min-h-[48px] flex flex-col items-center justify-center text-center border-b-4 border-[#0f172a]">
+                <div className="text-xl font-black leading-none">7</div>
+                <div className="text-[10px] uppercase font-bold text-gray-300">Iniciativas</div>
+              </motion.div>
             </div>
 
             {/* Coluna 2: Vazia */}
             <div className="flex-1 relative">
-               <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
+              <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
             </div>
 
             {/* Coluna 3: Refinamento */}
             <div className="flex-1 flex flex-col gap-2 items-center relative">
-               <div className="absolute left-[50%] top-[-32px] w-[1px] h-[32px] bg-[#da291c] z-[-1]"></div>
-               <motion.div custom={12} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Coordenação<br/>(IAGO)</motion.div>
-               <motion.div custom={13} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Controle de Ações</motion.div>
-               <div className="absolute left-[50%] top-[90px] w-[1px] h-[60px] bg-[#da291c]/50 z-[-1]"></div>
+              <div className="absolute left-[50%] top-[-32px] w-[1px] h-[32px] bg-[#da291c] z-[-1]"></div>
+              <motion.div custom={12} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Coordenação<br />(IAGO)</motion.div>
+              <motion.div custom={13} initial="hidden" animate="visible" variants={fadeUp} className="w-3/4 bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium">Controle de Ações</motion.div>
+              <div className="absolute left-[50%] top-[90px] w-[1px] h-[60px] bg-[#da291c]/50 z-[-1]"></div>
             </div>
 
             {/* Coluna 4: Experimentação */}
             <div className="flex-1 flex flex-col gap-2 items-center relative">
-               <div className="absolute left-[50%] top-[-32px] w-[1px] h-[32px] bg-[#da291c] z-[-1]"></div>
-               <motion.div custom={14} initial="hidden" animate="visible" variants={fadeUp} className="w-[90%] bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium relative">
-                 Recuperação (ISA)
-                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-teal-500 rounded-full border border-white"></div>
-               </motion.div>
-               <div className="absolute left-[50%] top-[40px] w-[1px] h-[110px] bg-[#da291c]/50 z-[-1]"></div>
+              <div className="absolute left-[50%] top-[-32px] w-[1px] h-[32px] bg-[#da291c] z-[-1]"></div>
+              <motion.div custom={14} initial="hidden" animate="visible" variants={fadeUp} className="w-[90%] bg-white border border-gray-200 rounded-md shadow-sm py-2 min-h-[48px] flex items-center justify-center text-center text-xs text-gray-700 font-medium relative">
+                Recuperação (ISA)
+                <div className="absolute -top-1 -right-1 w-3 h-3 bg-teal-500 rounded-full border border-white"></div>
+              </motion.div>
+              <div className="absolute left-[50%] top-[40px] w-[1px] h-[110px] bg-[#da291c]/50 z-[-1]"></div>
             </div>
 
             {/* Colunas 5, 6, 7 com linhas verticais finas */}
             <div className="flex-1 relative">
-               <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
+              <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
             </div>
             <div className="flex-1 relative">
-               <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
+              <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
             </div>
             <div className="flex-1 relative">
-               <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
+              <div className="absolute left-[50%] top-[-32px] w-[1px] h-[150px] bg-[#da291c]/50 z-[-1]"></div>
             </div>
 
           </div>
@@ -267,7 +267,7 @@ export default function ExperimentoPage({ onBack }: ExperimentoPageProps) {
 
       <footer className="mt-auto bg-white border-t border-gray-100 py-4 px-6">
         <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center">
-          <p className="text-xs font-bold text-gray-900">© 2026 Eficiência e Suporte Operacional</p>
+          <p className="text-xs font-bold text-gray-900">© 2026 | ESO -Eficiência e Suporte Operacional</p>
         </div>
       </footer>
     </div>

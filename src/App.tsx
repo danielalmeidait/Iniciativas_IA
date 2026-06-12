@@ -22,22 +22,22 @@ export default function App() {
 
   /** Página atual: 'home' | 'catalog' | 'facilitador' | 'experimento' */
   const [currentPage, setCurrentPage] = useState<'home' | 'catalog' | 'facilitador' | 'experimento'>('catalog');
-  
+
   /** Termo de busca textual digitado pelo usuário */
   const [search, setSearch] = useState('');
-  
+
   /** Lista de domínios ativos para filtragem */
   const [domainFilters, setDomainFilters] = useState<string[]>([]);
-  
+
   /** Lista de departamentos ativos (atualmente suporta seleção única via cards) */
   const [departmentFilters, setDepartmentFilters] = useState<string[]>([]);
-  
+
   /** Filtro de categoria (agent/automation/all) */
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'agent' | 'automation'>('all');
-  
+
   /** Agente selecionado para exibição no modal de detalhes */
   const [selectedAgent, setSelectedAgent] = useState<AIAgent | null>(null);
-  
+
   /** ID do último agente selecionado (útil para referências de animação ou foco) */
   const [lastSelectedId, setLastSelectedId] = useState<string | null>(null);
 
@@ -70,7 +70,7 @@ export default function App() {
    * @param dom Nome do domínio
    */
   const toggleDomainFilter = (dom: string) => {
-    setDomainFilters(prev => 
+    setDomainFilters(prev =>
       prev.includes(dom) ? prev.filter(i => i !== dom) : [...prev, dom]
     );
   };
@@ -140,7 +140,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans antialiased">
       {/* Cabeçalho de Navegação e Busca */}
-      <Header 
+      <Header
         search={search}
         setSearch={setSearch}
         domainFilters={domainFilters}
@@ -148,14 +148,14 @@ export default function App() {
         onLogoClick={handleReset}
         categoryFilter={categoryFilter}
         setCategoryFilter={setCategoryFilter}
-        onNavigateToHome={() => { setCurrentPage('home'); window.scrollTo(0,0); }}
-        onNavigateToFacilitador={() => { setCurrentPage('facilitador'); window.scrollTo(0,0); }}
-        onNavigateToExperimento={() => { setCurrentPage('experimento'); window.scrollTo(0,0); }}
+        onNavigateToHome={() => { setCurrentPage('home'); window.scrollTo(0, 0); }}
+        onNavigateToFacilitador={() => { setCurrentPage('facilitador'); window.scrollTo(0, 0); }}
+        onNavigateToExperimento={() => { setCurrentPage('experimento'); window.scrollTo(0, 0); }}
       />
 
       {/* Conteúdo Principal */}
       <main className="flex-grow">
-        <Catalog 
+        <Catalog
           onSelect={handleSelectAgent}
           search={search}
           domainFilters={domainFilters}
@@ -168,9 +168,9 @@ export default function App() {
         {/* Modal de Detalhes com Animação de Entrada/Saída */}
         <AnimatePresence>
           {selectedAgent && (
-            <Details 
-              agent={selectedAgent} 
-              onBack={() => setSelectedAgent(null)} 
+            <Details
+              agent={selectedAgent}
+              onBack={() => setSelectedAgent(null)}
             />
           )}
         </AnimatePresence>
@@ -181,7 +181,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-4 text-center">
           <div className="w-12 h-1 bg-claro-red/20 rounded-full mb-4" />
           <p className="text-sm font-bold text-gray-900 tracking-tight">
-            © 2026 Eficiência e Suporte Operacional
+            © 2026 | ESO - Eficiência e Suporte Operacional
           </p>
         </div>
       </footer>

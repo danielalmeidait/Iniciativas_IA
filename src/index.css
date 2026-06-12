@@ -14,6 +14,12 @@
 }
 
 @layer base {
+  html {
+    zoom: 1.25;
+    /* Alternativa caso alguns navegadores não suportem zoom tão bem: */
+    /* font-size: 125%; */
+  }
+  
   body {
     @apply bg-gray-50 text-gray-900 antialiased;
   }
