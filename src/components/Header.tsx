@@ -56,7 +56,7 @@ export default function Header({
 
   return (
     <header className="bg-white border-b border-gray-100 py-4 sm:py-8 px-4 sm:px-8 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-3 sm:gap-6">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 lg:gap-6">
 
         {/* Identidade Visual */}
         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
@@ -94,7 +94,7 @@ export default function Header({
           </div>
 
         {/* Ações e Filtros */}
-        <div className="flex flex-shrink-0 flex-wrap items-center justify-end gap-2 sm:gap-3">
+        <div className="flex flex-wrap items-center justify-start lg:justify-end gap-2 sm:gap-3 w-full lg:w-auto">
           
           {/* Busca Expansível */}
           <div className="flex items-center">
